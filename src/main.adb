@@ -39,19 +39,19 @@ procedure Main is
    R_Fichier : Unbounded_String;
    paquet : File_Type;
    i : Integer;
-   stop : Boolean;
-   IP : T_Adresse_IP;
+   --stop : Boolean;
+   --IP : T_Adresse_IP;
 begin
    i := 1;
    Analyser_L_Commande (T_Fichier, P_Fichier, R_Fichier);
    Open(Fichier_txt, In_File, To_String(T_Fichier));
-   Open(paquet, In_File, "paquets.txt");
+   --Open(paquet, In_File, "paquets.txt");
    Routeur_Simple.Remplire_Table(Fichier_txt, Table);
    --Afficher_Table (Table);
-   --Routeur_Simple.Donner_Resultats(Table);
-   Routeur_Simple.Commande_Paquets(paquet, stop, i, Table, IP);
+   Routeur_Simple.Donner_Resultats(Table);
+   --Routeur_Simple.Commande_Paquets(paquet, stop, i, Table, IP);
    Close(Fichier_txt);
-   Close(paquet);
+   --Close(paquet);
 
 end Main;
 

@@ -60,24 +60,18 @@ package body Routeur_Simple is
    end Get_IP;
 
    procedure Commande_Paquets(Paquets_txt : in File_Type; Stop : out Boolean; i : in out Integer; Table : in out T_Table; IP : out T_Adresse_IP) is
-      Valeur : Integer;
-      val : Unbounded_String;
+      Valeur : String(1..15);
    begin
       Get (Paquets_txt, Valeur);
-      if To_Unbounded_String (Valeur) = "" then
-         val :=  Get_Line(Paquets_txt);
-         if val = "table" then
-            Put ("table (ligne "); Put (i); Put (")");
-            New_Line;
-            Afficher_T(Table);
-            Get_IP(Paquets_txt, IP);
-            i := i + 2;
-         elsif val = "fin" then
-            Put ("fin (ligne "); Put (i); Put (")");
-            stop := True;
-         else
-            i := i + 1;
-         end if;
+      if To_Unbounded_String (Valeur) = "table" then
+         Put ("table (ligne " & Integer'Image(i)); Put (")");
+         New_Line;
+         Afficher_T(Table);
+         Get_IP(Paquets_txt, IP);
+         i := i + 2;
+      elsif To_Unbounded_String (Valeur) = "fin" then
+         Put ("fin (ligne " & Integer'Image(i) ); Put (")");
+         stop := True;
       else
          Get_IP(Paquets_txt, IP);
          i := i + 1;
@@ -140,7 +134,6 @@ package body Routeur_Simple is
             i := 1;
             Stop := False;
          loop
-
             Commande_Paquets (paquets_txt, Stop, i, Table, IP);
             Table0 := Table;
             loop

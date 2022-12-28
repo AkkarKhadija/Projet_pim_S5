@@ -16,7 +16,7 @@ RV NO_STANDARD_STORAGE_POOLS
 RV NO_DEFAULT_INITIALIZATION
 RV NO_IMPLEMENTATION_PRAGMAS
 
-U main%b		main.adb		1f8b35b8 NE OO SU
+U main%b		main.adb		89120aea NE OO SU
 W ada%s			ada.ads			ada.ali
 W ada.command_line%s	a-comlin.adb		a-comlin.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
@@ -53,16 +53,19 @@ D a-tiunio.ads		20210520051130 759c6b0c ada.text_io.unbounded_io%s
 D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
 D interfac.ads		20210520051132 edec285f interfaces%s
 D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
-D main.adb		20221228081014 27fe3ed2 main%b
+D main.adb		20221228195834 b1670180 main%b
 D routeur_simple.ads	20221227203316 58015c63 routeur_simple%s
-D routeur_simple.adb	20221228081014 64c9c60b routeur_simple%b
+D routeur_simple.adb	20221228202918 ad2c6f30 routeur_simple%b
 D system.ads		20210520051136 2ffa5114 system%s
 D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
+D s-conca2.ads		20210520051132 02a0d7d0 system.concat_2%s
 D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
 D s-exctab.ads		20210520051132 54135002 system.exception_table%s
 D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
 D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
 D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-imagei.ads		20210520051134 0d3f86a7 system.image_i%s
+D s-imgint.ads		20210520051134 bdb6f5ec system.img_int%s
 D s-memory.ads		20210520051134 597d6634 system.memory%s
 D s-parame.ads		20210520051134 4752c4cb system.parameters%s
 D s-pooglo.ads		20210520051134 ede33ef8 system.pool_global%s
@@ -86,7 +89,7 @@ G c Z b b [main standard 12 11 none]
 G r i none [main standard 12 11 none] [pour_chaque routeur_simple 33 14 none]
 G r c none [main standard 12 11 none] [analyser_l_commande routeur_simple 13 14 none]
 G r c none [main standard 12 11 none] [remplire_table routeur_simple 23 14 none]
-G r c none [main standard 12 11 none] [commande_paquets routeur_simple 20 14 none]
+G r c none [main standard 12 11 none] [donner_resultats routeur_simple 29 14 none]
 X 1 ada.ads
 16K9*Ada 20e8 23|1r6 1r37 2r6 2r37 3r6 3r37 4r6 4r37 5r6 5r37 6r6 6r37 7r6
 . 7r37
@@ -106,9 +109,9 @@ X 13 a-strunb.ads
 X 17 a-textio.ads
 58K13*Text_IO 725e16 23|2w10 2r41 5r10 5r41
 65P9*File_Type 23|35r18 40r13
-67n23*In_File{67E9} 23|47r22 48r17
-112U14*Open 23|47s4 48s4
-127U14*Close 23|53s4 54s4
+67n23*In_File{67E9} 23|47r22
+112U14*Open 23|47s4
+127U14*Close 23|53s4
 262U14*New_Line 23|29s7
 463U14*Put 23|19s70 20s70 21s70 23s7 24s65 25s65 26s65
 X 18 a-tiinio.ads
@@ -125,32 +128,30 @@ X 23 main.adb
 16r80 Int{13|88R9} 28r18
 17m7 UN_OCTET{24|10M9} 19r36 19r55 20r36 20r55 21r36 21r55 22r38 24r31 24r50
 . 25r31 25r50 26r31 26r50 27r33
-32U14 Afficher_Table[24|33] 25|174b14
+32U14 Afficher_Table[24|33] 25|167b14
 34m4 UN_OCTET{24|10M9}
 35p4 Fichier_txt{17|65P9} 47m9 47r9 49r34 53m10 53r10
-36p4 Table{24|8P9} 49m47 49r47 52m53 52r53
+36p4 Table{24|8P9} 49m47 49r47 51m36 51r36
 37r4 T_Fichier{13|88R9} 46m25 47r41
 38r4 P_Fichier{13|88R9} 46m36
 39r4 R_Fichier{13|88R9} 46m47
-40p4 paquet{17|65P9} 48m9 48r9 52r36 54m10 54r10
-41i4 i{integer} 45m4 52m50 52r50
-42b4 stop{boolean} 52m44
-43m4 IP{24|10M9} 52m60
+40p4 paquet{17|65P9}
+41i4 i{integer} 45m4
 X 24 routeur_simple.ads
-6K9*Routeur_Simple 23|8w6 8r37 49r4 52r4 24|46e19
+6K9*Routeur_Simple 23|8w6 8r37 49r4 51r4 24|46e19
 8P9*T_Table 23|36r12
-10M9*T_Adresse_IP 23|16r41 16r66 17r26 34r23 43r9
+10M9*T_Adresse_IP 23|16r41 16r66 17r26 34r23
 13U14*Analyser_L_Commande 23|46s4
-20U14*Commande_Paquets 23|52s19
 23U14*Remplire_Table 23|49s19
+29U14*Donner_Resultats 23|51s19
 32U32 Traiter 23|32r49
 33u14*Pour_Chaque 23|32r36
 X 26 system.ads
 67M9*Address
-X 33 s-memory.ads
+X 36 s-memory.ads
 53V13*Alloc{26|67M9} 103i<c,__gnat_malloc>22
 68U14*Free 104i<c,__gnat_free>22
 76V13*Realloc{26|67M9} 105i<c,__gnat_realloc>22
-X 41 s-stalib.adb
+X 44 s-stalib.adb
 89U14 Break_Start 90i<c,__gnat_break_start>22
 

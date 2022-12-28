@@ -30,12 +30,12 @@ package body ada_main is
    E123 : Short_Integer; pragma Import (Ada, E123, "system__finalization_root_E");
    E121 : Short_Integer; pragma Import (Ada, E121, "ada__finalization_E");
    E120 : Short_Integer; pragma Import (Ada, E120, "system__file_io_E");
-   E162 : Short_Integer; pragma Import (Ada, E162, "system__storage_pools_E");
-   E166 : Short_Integer; pragma Import (Ada, E166, "system__finalization_masters_E");
-   E164 : Short_Integer; pragma Import (Ada, E164, "system__storage_pools__subpools_E");
+   E164 : Short_Integer; pragma Import (Ada, E164, "system__storage_pools_E");
+   E168 : Short_Integer; pragma Import (Ada, E168, "system__finalization_masters_E");
+   E166 : Short_Integer; pragma Import (Ada, E166, "system__storage_pools__subpools_E");
    E140 : Short_Integer; pragma Import (Ada, E140, "ada__strings__unbounded_E");
    E096 : Short_Integer; pragma Import (Ada, E096, "ada__text_io_E");
-   E170 : Short_Integer; pragma Import (Ada, E170, "system__pool_global_E");
+   E172 : Short_Integer; pragma Import (Ada, E172, "system__pool_global_E");
    E160 : Short_Integer; pragma Import (Ada, E160, "routeur_simple_E");
 
    Sec_Default_Sized_Stacks : array (1 .. 1) of aliased System.Secondary_Stack.SS_Stack (System.Parameters.Runtime_Default_Sec_Stack_Size);
@@ -47,7 +47,7 @@ package body ada_main is
 
    procedure finalize_library is
    begin
-      E170 := E170 - 1;
+      E172 := E172 - 1;
       declare
          procedure F1;
          pragma Import (Ada, F1, "system__pool_global__finalize_spec");
@@ -68,14 +68,14 @@ package body ada_main is
       begin
          F3;
       end;
-      E164 := E164 - 1;
+      E166 := E166 - 1;
       declare
          procedure F4;
          pragma Import (Ada, F4, "system__storage_pools__subpools__finalize_spec");
       begin
          F4;
       end;
-      E166 := E166 - 1;
+      E168 := E168 - 1;
       declare
          procedure F5;
          pragma Import (Ada, F5, "system__finalization_masters__finalize_spec");
@@ -240,13 +240,13 @@ package body ada_main is
       System.File_Io'Elab_Body;
       E120 := E120 + 1;
       System.Storage_Pools'Elab_Spec;
-      E162 := E162 + 1;
+      E164 := E164 + 1;
       System.Finalization_Masters'Elab_Spec;
       System.Finalization_Masters'Elab_Body;
-      E166 := E166 + 1;
+      E168 := E168 + 1;
       System.Storage_Pools.Subpools'Elab_Spec;
       System.Storage_Pools.Subpools'Elab_Body;
-      E164 := E164 + 1;
+      E166 := E166 + 1;
       Ada.Strings.Unbounded'Elab_Spec;
       Ada.Strings.Unbounded'Elab_Body;
       E140 := E140 + 1;
@@ -255,7 +255,7 @@ package body ada_main is
       E096 := E096 + 1;
       System.Pool_Global'Elab_Spec;
       System.Pool_Global'Elab_Body;
-      E170 := E170 + 1;
+      E172 := E172 + 1;
       Routeur_Simple'Elab_Spec;
       E160 := E160 + 1;
    end adainit;
