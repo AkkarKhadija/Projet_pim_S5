@@ -1,0 +1,20 @@
+[GENERATED OBJECT FILE]
+b__main.o
+[PROJECT FILES]
+C:\Users\Hay Info\Desktop\projet_final3\projet_final\projet_final.gpr
+20221217125852 fbd71127dbdffe2df579dcbd79051aae
+[BOUND OBJECT FILES]
+C:\Users\Hay Info\Desktop\projet_final3\projet_final\obj\routeur_simple.o
+C:\Users\Hay Info\Desktop\projet_final3\projet_final\obj\main.o
+[GENERATED SOURCE FILES]
+b__main.ads
+b__main.adb
+b__main.ali
+[RESULTING OPTIONS]
+-LC:\Users\Hay Info\Desktop\projet_final3\projet_final\obj\
+-LC:\Users\Hay Info\Desktop\projet_final3\projet_final\obj\
+-LC:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/
+-static
+-static-libgcc
+C:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/libgnat.a
+-Wl,--stack=0x2000000
