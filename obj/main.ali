@@ -10,13 +10,11 @@ RV NO_EXCEPTION_HANDLERS
 RV NO_EXCEPTIONS
 RV NO_IO
 RV NO_NESTED_FINALIZATION
-RV NO_RECURSION
 RV NO_SECONDARY_STACK
-RV NO_STANDARD_STORAGE_POOLS
 RV NO_DEFAULT_INITIALIZATION
 RV NO_IMPLEMENTATION_PRAGMAS
 
-U main%b		main.adb		89120aea NE OO SU
+U main%b		main.adb		d67db3f1 NE OO SU
 W ada%s			ada.ads			ada.ali
 W ada.command_line%s	a-comlin.adb		a-comlin.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
@@ -53,19 +51,15 @@ D a-tiunio.ads		20210520051130 759c6b0c ada.text_io.unbounded_io%s
 D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
 D interfac.ads		20210520051132 edec285f interfaces%s
 D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
-D main.adb		20221228195834 b1670180 main%b
-D routeur_simple.ads	20221227203316 58015c63 routeur_simple%s
-D routeur_simple.adb	20221228202918 ad2c6f30 routeur_simple%b
+D main.adb		20221229134756 db77def6 main%b
+D routeur_simple.ads	20221229134234 6d7e3a0e routeur_simple%s
 D system.ads		20210520051136 2ffa5114 system%s
 D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
-D s-conca2.ads		20210520051132 02a0d7d0 system.concat_2%s
 D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
 D s-exctab.ads		20210520051132 54135002 system.exception_table%s
 D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
 D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
 D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
-D s-imagei.ads		20210520051134 0d3f86a7 system.image_i%s
-D s-imgint.ads		20210520051134 bdb6f5ec system.img_int%s
 D s-memory.ads		20210520051134 597d6634 system.memory%s
 D s-parame.ads		20210520051134 4752c4cb system.parameters%s
 D s-pooglo.ads		20210520051134 ede33ef8 system.pool_global%s
@@ -78,7 +72,6 @@ D s-stalib.adb		20210520051134 977290bf system.standard_library%b
 D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
 D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
 D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
-D s-stposu.ads		20210520051134 e251976f system.storage_pools.subpools%s
 D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
 D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
 D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
@@ -86,9 +79,9 @@ D s-wchcon.ads		20210520051136 1b7d22d2 system.wch_con%s
 D unchconv.ads		20210520051136 ca2f9e18 unchecked_conversion%s
 G a e
 G c Z b b [main standard 12 11 none]
-G r i none [main standard 12 11 none] [pour_chaque routeur_simple 33 14 none]
 G r c none [main standard 12 11 none] [analyser_l_commande routeur_simple 13 14 none]
 G r c none [main standard 12 11 none] [remplire_table routeur_simple 23 14 none]
+G r c none [main standard 12 11 none] [afficher_t routeur_simple 26 14 none]
 G r c none [main standard 12 11 none] [donner_resultats routeur_simple 29 14 none]
 X 1 ada.ads
 16K9*Ada 20e8 23|1r6 1r37 2r6 2r37 3r6 3r37 4r6 4r37 5r6 5r37 6r6 6r37 7r6
@@ -103,55 +96,39 @@ X 10 a-string.ads
 16K13*Strings 35e16 23|1w10 1r41 4r10 4r41
 X 13 a-strunb.ads
 83K21*Unbounded 765e26 23|4w18 4r49
-88R9*Unbounded_String<6|43R9> 744e15 23|16r89 37r16 38r16 39r16
-117V13*To_String{string} 23|47s31
-168V14*"&"{88R9} 23|28s16
+88R9*Unbounded_String<6|43R9> 744e15 23|15r18 16r18 17r18
+117V13*To_String{string} 23|25s31
 X 17 a-textio.ads
 58K13*Text_IO 725e16 23|2w10 2r41 5r10 5r41
-65P9*File_Type 23|35r18 40r13
-67n23*In_File{67E9} 23|47r22
-112U14*Open 23|47s4
-127U14*Close 23|53s4
-262U14*New_Line 23|29s7
-463U14*Put 23|19s70 20s70 21s70 23s7 24s65 25s65 26s65
-X 18 a-tiinio.ads
-80U14*Put 23|19s7[7|18] 20s7[7|18] 21s7[7|18] 22s7[7|18] 24s7[7|18] 25s7[7|18]
-. 26s7[7|18] 27s7[7|18]
+65P9*File_Type 23|13r18 18r22
+67n23*In_File{67E9} 23|25r22
+112U14*Open 23|25s4
+127U14*Close 23|44s4
+262U14*New_Line 23|32s4 34s4 38s4 40s4
+506U14*Put_Line 23|31s4 37s4
 X 19 a-tiunio.ads
 25K21*Unbounded_IO 61e29 23|5w18 5r49
-32U14*Put=34:42 23|28s7
 X 23 main.adb
-12U11*Main 12b11 56l5 56t9
-16U14 Afficher 16b14 16>24 16>55 16>80 30l8 30t16 32r60
-16m24 Destination{24|10M9} 19r22 20r22 21r22 22r22
-16m55 Masque{24|10M9} 24r22 25r22 26r22 27r22
-16r80 Int{13|88R9} 28r18
-17m7 UN_OCTET{24|10M9} 19r36 19r55 20r36 20r55 21r36 21r55 22r38 24r31 24r50
-. 25r31 25r50 26r31 26r50 27r33
-32U14 Afficher_Table[24|33] 25|167b14
-34m4 UN_OCTET{24|10M9}
-35p4 Fichier_txt{17|65P9} 47m9 47r9 49r34 53m10 53r10
-36p4 Table{24|8P9} 49m47 49r47 51m36 51r36
-37r4 T_Fichier{13|88R9} 46m25 47r41
-38r4 P_Fichier{13|88R9} 46m36
-39r4 R_Fichier{13|88R9} 46m47
-40p4 paquet{17|65P9}
-41i4 i{integer} 45m4
+12U11*Main 12b11 46l5 46t9
+13p4 Fichier_txt{17|65P9} 25m9 25r9 28r34 44m10 44r10
+14p4 Table{24|8P9} 28m47 28r47 33r30 39m36 39r36
+15r4 T_Fichier{13|88R9} 22m25 25r41
+16r4 P_Fichier{13|88R9} 22m36
+17r4 R_Fichier{13|88R9} 22m47
+18p4 Paquet_txt{17|65P9}
 X 24 routeur_simple.ads
-6K9*Routeur_Simple 23|8w6 8r37 49r4 51r4 24|46e19
-8P9*T_Table 23|36r12
-10M9*T_Adresse_IP 23|16r41 16r66 17r26 34r23
-13U14*Analyser_L_Commande 23|46s4
-23U14*Remplire_Table 23|49s19
-29U14*Donner_Resultats 23|51s19
-32U32 Traiter 23|32r49
-33u14*Pour_Chaque 23|32r36
-X 26 system.ads
+6K9*Routeur_Simple 23|8w6 8r37 28r4 33r4 39r4 24|46e19
+8P9*T_Table 23|14r18
+13U14*Analyser_L_Commande 23|22s4
+23U14*Remplire_Table 23|28s19
+26U14*Afficher_T 23|33s19
+29U14*Donner_Resultats 23|39s19
+X 25 system.ads
 67M9*Address
-X 36 s-memory.ads
-53V13*Alloc{26|67M9} 103i<c,__gnat_malloc>22
+X 32 s-memory.ads
+53V13*Alloc{25|67M9} 103i<c,__gnat_malloc>22
 68U14*Free 104i<c,__gnat_free>22
-76V13*Realloc{26|67M9} 105i<c,__gnat_realloc>22
-X 44 s-stalib.adb
+76V13*Realloc{25|67M9} 105i<c,__gnat_realloc>22
+X 40 s-stalib.adb
 89U14 Break_Start 90i<c,__gnat_break_start>22
 

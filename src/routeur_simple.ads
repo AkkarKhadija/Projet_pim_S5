@@ -23,7 +23,7 @@ package Routeur_Simple is
    procedure Remplire_Table (Fichier : in File_Type; Table :in out T_Table) ;
 
    -- Afficher le contenu de la Table de routage
-   procedure Afficher_T (Table : in out T_Table);
+   procedure Afficher_T (Table : in  T_Table);
 
    -- chercher la bonne route et remplir le ficher resultats.txt
    procedure Donner_Resultats (Table : in out T_Table);

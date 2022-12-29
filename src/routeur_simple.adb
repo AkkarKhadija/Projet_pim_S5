@@ -60,16 +60,18 @@ package body Routeur_Simple is
    end Get_IP;
 
    procedure Commande_Paquets(Paquets_txt : in File_Type; Stop : out Boolean; i : in out Integer; Table : in out T_Table; IP : out T_Adresse_IP) is
-      Valeur : String(1..15);
+      Valeur : Character;
+      Texte : Unbounded_String;
    begin
       Get (Paquets_txt, Valeur);
-      if To_Unbounded_String (Valeur) = "table" then
+      if Valeur = 't' then
          Put ("table (ligne " & Integer'Image(i)); Put (")");
          New_Line;
          Afficher_T(Table);
-         Get_IP(Paquets_txt, IP);
-         i := i + 2;
-      elsif To_Unbounded_String (Valeur) = "fin" then
+         texte := Get_Line(Paquets_txt);
+         i := i + 1;
+         Commande_Paquets(Paquets_txt, Stop, i, Table, IP);
+      elsif Valeur = 'f' then
          Put ("fin (ligne " & Integer'Image(i) ); Put (")");
          stop := True;
       else
@@ -96,22 +98,24 @@ package body Routeur_Simple is
 
    end Remplire_Table;
 
-   procedure Afficher_T (Table :in out T_Table) is
+   procedure Afficher_T (Table :in  T_Table) is
       UN_OCTET: constant T_Adresse_IP := 2 ** 8;
+      curseur : T_Table;
    begin
-      while Table /= null loop
-         Put (Natural ((Table.all.Destination / UN_OCTET ** 3) mod UN_OCTET), 1); Put (".");
-         Put (Natural ((Table.all.Destination / UN_OCTET ** 2) mod UN_OCTET), 1); Put (".");
-         Put (Natural ((Table.all.Destination / UN_OCTET ** 1) mod UN_OCTET), 1); Put (".");
-         Put (Natural  (Table.all.Destination mod UN_OCTET), 1);
+      curseur := Table;
+      while curseur /= null loop
+         Put (Natural ((curseur.all.Destination / UN_OCTET ** 3) mod UN_OCTET), 1); Put (".");
+         Put (Natural ((curseur.all.Destination / UN_OCTET ** 2) mod UN_OCTET), 1); Put (".");
+         Put (Natural ((curseur.all.Destination / UN_OCTET ** 1) mod UN_OCTET), 1); Put (".");
+         Put (Natural  (curseur.all.Destination mod UN_OCTET), 1);
          Put (" " );
-         Put (Natural ((Table.all.Masque / UN_OCTET ** 3) mod UN_OCTET), 1); Put (".");
-         Put (Natural ((Table.all.Masque / UN_OCTET ** 2) mod UN_OCTET), 1); Put (".");
-         Put (Natural ((Table.all.Masque / UN_OCTET ** 1) mod UN_OCTET), 1); Put (".");
-         Put (Natural  (Table.all.Masque mod UN_OCTET), 1);
-         Put (" " & Table.all.Interface_T);
+         Put (Natural ((curseur.all.Masque / UN_OCTET ** 3) mod UN_OCTET), 1); Put (".");
+         Put (Natural ((curseur.all.Masque / UN_OCTET ** 2) mod UN_OCTET), 1); Put (".");
+         Put (Natural ((curseur.all.Masque / UN_OCTET ** 1) mod UN_OCTET), 1); Put (".");
+         Put (Natural  (curseur.all.Masque mod UN_OCTET), 1);
+         Put (" " & curseur.all.Interface_T);
          New_Line;
-         Table := Table.all.Suivante;
+         curseur := curseur.all.Suivante;
       end loop;
    end Afficher_T;
 
@@ -121,23 +125,24 @@ package body Routeur_Simple is
       Resultats_txt: File_Type;
       IP           : T_Adresse_IP;
       Table0      : T_Table;
-      T_Fichier : Unbounded_String;
-      P_Fichier : Unbounded_String;
-      R_Fichier : Unbounded_String;
-      i : Integer;
-      Stop : Boolean;
+      T_Fichier   : Unbounded_String;
+      P_Fichier   : Unbounded_String;
+      R_Fichier   : Unbounded_String;
+      i           : Integer;
+      Stop        : Boolean;
    begin
       Analyser_L_Commande (T_Fichier, P_Fichier, R_Fichier);
       Create(Resultats_txt, Out_File, To_String(R_Fichier));
       Open(paquets_txt, In_File, To_String(P_Fichier));
       begin
-            i := 1;
-            Stop := False;
+         i := 1;
+         Stop := False;
          loop
+
             Commande_Paquets (paquets_txt, Stop, i, Table, IP);
             Table0 := Table;
             loop
-               if (IP = Table0.all.Destination) and (Table0.all.Masque /= 0) then
+               if (IP = Table0.all.Destination) and Table0.all.Masque /= 0 then
                   Put (Resultats_txt, Natural ((Table0.all.Destination / UN_OCTET ** 3) mod UN_OCTET), 1); Put (Resultats_txt,".");
                   Put (Resultats_txt, Natural ((Table0.all.Destination / UN_OCTET ** 2) mod UN_OCTET), 1); Put (Resultats_txt,".");
                   Put (Resultats_txt, Natural ((Table0.all.Destination / UN_OCTET ** 1) mod UN_OCTET), 1); Put (Resultats_txt,".");

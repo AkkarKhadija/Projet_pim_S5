@@ -10,48 +10,38 @@ with Routeur_Simple;            use Routeur_Simple;
 
 
 procedure Main is
-
-
-
-   procedure Afficher (Destination : in T_Adresse_IP; Masque: in T_Adresse_IP; Int : in Unbounded_String) is
-      UN_OCTET: constant T_Adresse_IP := 2 ** 8;
-   begin
-      Put (Natural ((Destination / UN_OCTET ** 3) mod UN_OCTET), 1); Put (".");
-      Put (Natural ((Destination / UN_OCTET ** 2) mod UN_OCTET), 1); Put (".");
-      Put (Natural ((Destination / UN_OCTET ** 1) mod UN_OCTET), 1); Put (".");
-      Put (Natural  (Destination mod UN_OCTET), 1);
-      Put (" " );
-      Put (Natural ((Masque / UN_OCTET ** 3) mod UN_OCTET), 1); Put (".");
-      Put (Natural ((Masque / UN_OCTET ** 2) mod UN_OCTET), 1); Put (".");
-      Put (Natural ((Masque / UN_OCTET ** 1) mod UN_OCTET), 1); Put (".");
-      Put (Natural  (Masque mod UN_OCTET), 1);
-      Put (" " & Int);
-      New_Line;
-   end Afficher;
-
-   procedure Afficher_Table is new Pour_Chaque (Traiter => Afficher);
-
-   UN_OCTET: constant T_Adresse_IP := 2 ** 8;
    Fichier_txt : File_Type;
-   Table : T_Table;
-   T_Fichier : Unbounded_String;
-   P_Fichier : Unbounded_String;
-   R_Fichier : Unbounded_String;
-   paquet : File_Type;
-   i : Integer;
-   --stop : Boolean;
-   --IP : T_Adresse_IP;
+   Table       : T_Table;
+   T_Fichier   : Unbounded_String;
+   P_Fichier   : Unbounded_String;
+   R_Fichier   : Unbounded_String;
+   Paquet_txt      : File_Type;
+
 begin
-   i := 1;
+   -- analyser la ligne de commande aprés la commande d'exécution de ce fichier
    Analyser_L_Commande (T_Fichier, P_Fichier, R_Fichier);
+
+   -- Ouvrir le fichier table.txt
    Open(Fichier_txt, In_File, To_String(T_Fichier));
-   --Open(paquet, In_File, "paquets.txt");
+
+   -- Remplir la table de routage à partir du fichier table.txt
    Routeur_Simple.Remplire_Table(Fichier_txt, Table);
-   --Afficher_Table (Table);
+
+   --Afficher la table de routage
+   Put_Line("La table de routage est :");
+   New_Line;
+   Routeur_Simple.Afficher_T(Table);
+   New_Line;
+
+   -- Remplir le fichier resultats.txt aprés l'analyse du fichier paquets.txt
+   Put_Line("Le résultats du routage est :");
+   New_Line;
    Routeur_Simple.Donner_Resultats(Table);
-   --Routeur_Simple.Commande_Paquets(paquet, stop, i, Table, IP);
+   New_Line;
+
+
+   -- Fermer le fichier table.txt qui est déja utilisé
    Close(Fichier_txt);
-   --Close(paquet);
 
 end Main;
 
