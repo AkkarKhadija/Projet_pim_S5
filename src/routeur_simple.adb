@@ -141,7 +141,6 @@ package body Routeur_Simple is
       paquets_txt  :  File_Type;
       Resultats_txt: File_Type;
       IP           : T_Adresse_IP;
-      Table0      : T_Table;
       T_Fichier   : Unbounded_String;
       P_Fichier   : Unbounded_String;
       R_Fichier   : Unbounded_String;
@@ -159,18 +158,7 @@ package body Routeur_Simple is
          loop
 
             Commande_Paquets (paquets_txt, Stop, i, Table, IP);
-            Table0 := Table;
-            M_Trouvee := 0;
-            loop
-               if (IP = Table0.all.Destination) and Table0.all.Masque > M_Trouvee then
-                  M_Trouvee := Table0.all.Masque;
-                  I_Trouvee := Table0.all.Interface_T;
-                  Table0 := Table0.all.Suivante;
-               else
-                  Table0 := Table0.all.Suivante;
-               end if;
-               exit when Table0.all.Suivante = null;
-            end loop;
+            Chercher_Table(Table, IP, M_Trouvee, I_Trouvee);
             Put (Resultats_txt, Natural ((IP / UN_OCTET ** 3) mod UN_OCTET), 1); Put (Resultats_txt,".");
             Put (Resultats_txt, Natural ((IP / UN_OCTET ** 2) mod UN_OCTET), 1); Put (Resultats_txt,".");
             Put (Resultats_txt, Natural ((IP / UN_OCTET ** 1) mod UN_OCTET), 1); Put (Resultats_txt,".");
