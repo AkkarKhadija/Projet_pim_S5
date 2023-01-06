@@ -59,6 +59,29 @@ package body Routeur_Simple is
       end loop;
    end Get_IP;
 
+   function Comparer_Masque (M_1 : in T_Adresse_IP; M_2 : in T_Adresse_IP) return Boolean is
+      POIDS_FORT : constant T_Adresse_IP  := 2 ** 31;	 -- 10000000.00000000.00000000.00000000
+      Dest_1 : T_Adresse_IP;
+      Dest_2 : T_Adresse_IP;
+      Bool_1 : Boolean;
+      Bool_2 : Boolean;
+   begin
+      Dest_1 := M_1;
+      Dest_2 := M_2;
+      loop
+         Bool_1 := (Dest_1 and POIDS_FORT) /= 0;
+         Bool_2 := (Dest_2 and POIDS_FORT) /= 0;
+         Dest_1 := Dest_1*2;
+         Dest_2 := Dest_2*2;
+         exit when not Bool_1 or not Bool_2;
+      end loop;
+      if not Bool_1 then
+         return True;
+      else
+         return False;
+      end if;
+   end Comparer_Masque;
+
    procedure Commande_Paquets(Paquets_txt : in File_Type; Stop : out Boolean; i : in out Integer; Table : in  T_Table; IP : out T_Adresse_IP) is
       Valeur : Character;
       Texte : Unbounded_String;

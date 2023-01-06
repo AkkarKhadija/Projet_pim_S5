@@ -21,7 +21,7 @@ RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_IMPLEMENTATION_PRAGMAS
 RV NO_ELABORATION_CODE
 
-U routeur_simple%b	routeur_simple.adb	7050ae6b NE OO PK
+U routeur_simple%b	routeur_simple.adb	65fba936 NE OO PK
 W ada%s			ada.ads			ada.ali
 W ada.command_line%s	a-comlin.adb		a-comlin.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
@@ -41,7 +41,7 @@ Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
 Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
 Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
 
-U routeur_simple%s	routeur_simple.ads	975c7387 BN EE OO PK
+U routeur_simple%s	routeur_simple.ads	e729f4af BN EE OO PK
 W ada%s			ada.ads			ada.ali
 Z ada.exceptions%s	a-except.adb		a-except.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
@@ -78,8 +78,8 @@ D a-tiunio.ads		20210520051130 759c6b0c ada.text_io.unbounded_io%s
 D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
 D interfac.ads		20210520051132 edec285f interfaces%s
 D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
-D routeur_simple.ads	20230105083712 b94d1665 routeur_simple%s
-D routeur_simple.adb	20230106190152 a969ef07 routeur_simple%b
+D routeur_simple.ads	20230106195500 c938914d routeur_simple%s
+D routeur_simple.adb	20230106195500 ccb76f72 routeur_simple%b
 D system.ads		20210520051136 2ffa5114 system%s
 D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
 D s-conca2.ads		20210520051132 02a0d7d0 system.concat_2%s
@@ -112,15 +112,16 @@ G a e
 G c Z s b [analyser_l_commande routeur_simple 13 14 none]
 G c Z s b [enregistrer_table routeur_simple 16 14 none]
 G c Z s b [get_ip routeur_simple 19 14 none]
-G c Z s b [commande_paquets routeur_simple 21 14 none]
-G c Z s b [chercher_table routeur_simple 23 14 none]
-G c Z s b [remplire_table routeur_simple 26 14 none]
-G c Z s b [afficher_t routeur_simple 29 14 none]
-G c Z s b [donner_resultats routeur_simple 32 14 none]
-G c Z s s [t_route_tableDI routeur_simple 43 9 none]
-G c Z s s [t_route_tableDA routeur_simple 43 9 none]
-G c Z s s [t_route_tableDF routeur_simple 43 9 none]
-G c Z s s [t_route_tableIP routeur_simple 43 9 none]
+G c Z s b [comparer_masque routeur_simple 21 13 none]
+G c Z s b [commande_paquets routeur_simple 23 14 none]
+G c Z s b [chercher_table routeur_simple 25 14 none]
+G c Z s b [remplire_table routeur_simple 28 14 none]
+G c Z s b [afficher_t routeur_simple 31 14 none]
+G c Z s b [donner_resultats routeur_simple 34 14 none]
+G c Z s s [t_route_tableDI routeur_simple 45 9 none]
+G c Z s s [t_route_tableDA routeur_simple 45 9 none]
+G c Z s s [t_route_tableDF routeur_simple 45 9 none]
+G c Z s s [t_route_tableIP routeur_simple 45 9 none]
 X 1 ada.ads
 16K9*Ada 20e8 23|1r6 1r37 2r6 2r37 3r6 3r37 4r6 4r37 24|1r6 1r37 2r6 2r37
 . 3r6 3r37 4r6 4r37 5r6 5r37 6r6 6r37 7r6 7r37
@@ -130,96 +131,100 @@ X 4 a-comlin.ads
 52V13*Argument{string} 24|19s13 20s47 22s16 23s47 25s16 26s47
 X 5 a-except.ads
 44K13*Exceptions 289e19 24|7w10 7r41
-84V13*Exception_Message{string} 24|179s20
+84V13*Exception_Message{string} 24|202s20
 X 7 a-inteio.ads
 18K13*Integer_Text_IO[18|46] 23|2w10 2r41 24|3w10 3r41
 X 10 a-string.ads
 16K13*Strings 35e16 23|3r10 3r41 24|1w10 1r41 4r10 4r41
 X 13 a-strunb.ads
 83K21*Unbounded 765e26 23|3w18 3r49 24|4w18 4r49
-88R9*Unbounded_String<6|43R9> 744e15 23|13r51 13r85 13r119 16r105 23r113
-. 35r106 46r21 24|11r51 11r85 11r119 34r105 64r15 85r113 106r11 144r21 145r21
-. 146r21 150r19
+88R9*Unbounded_String<6|43R9> 744e15 23|13r51 13r85 13r119 16r105 25r113
+. 37r106 48r21 24|11r51 11r85 11r119 34r105 87r15 108r113 129r11 167r21 168r21
+. 169r21 173r19
 104V13*To_Unbounded_String{88R9} 24|15s20 16s20 17s20 20s26 23s26 26s26
-117V13*To_String{string} 24|153s39 154s34
-168V14*"&"{88R9} 24|133s19 166s37
+117V13*To_String{string} 24|176s39 177s34
+168V14*"&"{88R9} 24|156s19 189s37
 X 17 a-textio.ads
 58K13*Text_IO 725e16 23|1w10 1r41 4r10 4r41 24|2w10 2r41 5r10 5r41
-65P9*File_Type 23|19r35 21r48 26r43 24|47r35 62r48 102r42 141r23 142r22
-67n23*In_File{67E9} 24|154r25
-67n32*Out_File{67E9} 24|153r29
-97U14*Create 24|153s7
-112U14*Open 24|154s7
-127U14*Close 24|175s7 176s7
-256U14*New_Line 24|167s13
-262U14*New_Line 24|69s10 134s10
-310V13*End_Of_File{boolean} 24|113s17 168s20
-376U14*Get 24|58s10 66s7
-457U14*Put 24|162s82 163s82 164s82
-463U14*Put 24|68s10 68s52 75s10 75s51 124s85 125s85 126s85 128s10 129s80
-. 130s80 131s80 172s13
-506U14*Put_Line 24|179s10
-545X4*End_Error 24|171r15
+65P9*File_Type 23|19r35 23r48 28r43 24|47r35 85r48 125r42 164r23 165r22
+67n23*In_File{67E9} 24|177r25
+67n32*Out_File{67E9} 24|176r29
+97U14*Create 24|176s7
+112U14*Open 24|177s7
+127U14*Close 24|198s7 199s7
+256U14*New_Line 24|190s13
+262U14*New_Line 24|92s10 157s10
+310V13*End_Of_File{boolean} 24|136s17 191s20
+376U14*Get 24|58s10 89s7
+457U14*Put 24|185s82 186s82 187s82
+463U14*Put 24|91s10 91s52 98s10 98s51 147s85 148s85 149s85 151s10 152s80
+. 153s80 154s80 195s13
+506U14*Put_Line 24|202s10
+545X4*End_Error 24|194r15
 X 18 a-tiinio.ads
 51U14*Get 24|55s10[7|18]
-68U14*Put 24|162s13[7|18] 163s13[7|18] 164s13[7|18] 165s13[7|18]
-80U14*Put 24|124s10[7|18] 125s10[7|18] 126s10[7|18] 127s10[7|18] 129s10[7|18]
-. 130s10[7|18] 131s10[7|18] 132s10[7|18]
+68U14*Put 24|185s13[7|18] 186s13[7|18] 187s13[7|18] 188s13[7|18]
+80U14*Put 24|147s10[7|18] 148s10[7|18] 149s10[7|18] 150s10[7|18] 152s10[7|18]
+. 153s10[7|18] 154s10[7|18] 155s10[7|18]
 X 19 a-tiunio.ads
 25K21*Unbounded_IO 61e29 23|4w18 4r49 24|5w18 5r49
-27U14*Put=30:42 24|166s13
-32U14*Put=34:42 24|133s10
-45V13*Get_Line=47:42{13|88R9} 24|71s19 111s15
+27U14*Put=30:42 24|189s13
+32U14*Put=34:42 24|156s10
+45V13*Get_Line=47:42{13|88R9} 24|94s19 134s15
 X 23 routeur_simple.ads
-6K9*Routeur_Simple 39E9 49l5 49e19 24|9b14 194l5 194t19
-8P9*T_Table 16r47 21r111 23r41 26r68 29r38 32r47 36r37 41c9 47r18 24|34r47
-. 62r111 85r41 86r16 102r68 118r37 120r17 139r46 182r38
-10M9*T_Adresse_IP 16r63 16r84 19r55 21r129 23r58 23r89 35r58 35r83 44r21
-. 45r16 24|34r63 34r84 47r55 48r26 51r13 56r17 62r129 85r58 85r89 103r26
-. 104r12 105r11 119r26 140r31 143r22 149r19
-13U14*Analyser_L_Commande 13<35 13<69 13<103 24|11b14 32l8 32t27 152s7
+6K9*Routeur_Simple 41E9 51l5 51e19 24|9b14 217l5 217t19
+8P9*T_Table 16r47 23r111 25r41 28r68 31r38 34r47 38r37 43c9 49r18 24|34r47
+. 85r111 108r41 109r16 125r68 141r37 143r17 162r46 205r38
+10M9*T_Adresse_IP 16r63 16r84 19r55 21r39 21r62 23r129 25r58 25r89 37r58
+. 37r83 46r21 47r16 24|34r63 34r84 47r55 48r26 51r13 56r17 62r39 62r62 63r29
+. 64r16 65r16 85r129 108r58 108r89 126r26 127r12 128r11 142r26 163r31 166r22
+. 172r19
+13U14*Analyser_L_Commande 13<35 13<69 13<103 24|11b14 32l8 32t27 175s7
 13r35 T_Fichier{13|88R9} 24|11b35 15m7 20m13
 13r69 P_Fichier{13|88R9} 24|11b69 16m7 23m13
 13r103 R_Fichier{13|88R9} 24|11b103 17m7 26m13
 16U14*Enregistrer_Table 16=32 16>56 16>77 16>98 24|34b14 43s10 45l8 45t25
-. 112s10
+. 135s10
 16p32 Table{8P9} 24|34b32 36r10 37m10 38r10 39r10 40r10 41r10 43r29
 16m56 D{10M9} 24|34b56 38r35 43r49
 16m77 M{10M9} 24|34b77 39r30 43r52
 16r98 I{13|88R9} 24|34b98 40r35 43r55
-19U14*Get_IP 19>22 19<46 24|47b14 60l8 60t14 78s10 109s10 110s10
+19U14*Get_IP 19>22 19<46 24|47b14 60l8 60t14 101s10 132s10 133s10
 19p22 Fichier{17|65P9} 24|47b22 55r15 58r15
 19m46 IP{10M9} 24|47b46 53m7 57m10 57r16
-21U14*Commande_Paquets 21>31 21<59 21=79 21>99 21<120 24|62b14 73s10 83l8
-. 83t24 160s13
-21p31 Paquets_txt{17|65P9} 24|62b31 66r12 71r28 73r27 78r17
-21b59 Stop{boolean} 24|62b59 73m40 76m10
-21i79 i{integer} 24|62b79 68r47 72m10 72r15 73m46 75r45 79m10 79r15
-21p99 Table{8P9} 24|62b99 70r21 73r49
-21m120 IP{10M9} 24|62b120 73m56 78m30
-23U14*Chercher_Table 23>30 23>50 23<72 23<103 24|85b14 100l8 100t22 161s13
-23p30 Table{8P9} 24|85b30 88r17
-23m50 IP{10M9} 24|85b50 91r14
-23m72 M_Trouve_T{10M9} 24|85b72 89m7 91r67 92m13
-23r103 Int{13|88R9} 24|85b103 93m13
-26U14*Remplire_Table 26>30 26=54 24|102b14 116l8 116t22
-26p30 Fichier{17|65P9} 24|102b29 109r17 110r17 111r24 113r29
-26p54 Table{8P9} 24|102b53 112m28
-29U14*Afficher_T 29>26 24|70s10 118b14 137l8 137t18
-29p26 Table{8P9} 24|118b26 122r18
-32U14*Donner_Resultats 32=32 24|139b14 180l8 180t24
-32p32 Table{8P9} 24|139b31 160r53 161r28
-35U32 Traiter 35>41 35>72 35>97 24|185s10
-35m41 Destination{10M9}
-35m72 Masque{10M9}
-35r97 Int{13|88R9}
-36u14*Pour_Chaque 36>27 24|182b14 186s10 192l8 192t19
-36p27 Table{8P9} 24|182b27 184r10 185r19 185r42 185r60 186r23
-39R9 T_Route_Table 41r27 43c9 48e14 24|37r23
-44m7*Destination{10M9} 24|38m20 91r30 124r37 125r37 126r37 127r37 185r29
-45m7*Masque{10M9} 24|39m20 91r58 92r38 129r37 130r37 131r37 132r37 185r52
-46r7*Interface_T{13|88R9} 24|40m20 93r31 133r33 185r70
-47p7*Suivante{8P9} 24|41m20 43m39 94r34 96r34 98r31 135r33 186r33
+21V13*Comparer_Masque{boolean} 21>30 21>53 24|62b13 83l8 83t23
+21m30 M_1{10M9} 24|62b30 69r17
+21m53 M_2{10M9} 24|62b53 70r17
+23U14*Commande_Paquets 23>31 23<59 23=79 23>99 23<120 24|85b14 96s10 106l8
+. 106t24 183s13
+23p31 Paquets_txt{17|65P9} 24|85b31 89r12 94r28 96r27 101r17
+23b59 Stop{boolean} 24|85b59 96m40 99m10
+23i79 i{integer} 24|85b79 91r47 95m10 95r15 96m46 98r45 102m10 102r15
+23p99 Table{8P9} 24|85b99 93r21 96r49
+23m120 IP{10M9} 24|85b120 96m56 101m30
+25U14*Chercher_Table 25>30 25>50 25<72 25<103 24|108b14 123l8 123t22 184s13
+25p30 Table{8P9} 24|108b30 111r17
+25m50 IP{10M9} 24|108b50 114r14
+25m72 M_Trouve_T{10M9} 24|108b72 112m7 114r67 115m13
+25r103 Int{13|88R9} 24|108b103 116m13
+28U14*Remplire_Table 28>30 28=54 24|125b14 139l8 139t22
+28p30 Fichier{17|65P9} 24|125b29 132r17 133r17 134r24 136r29
+28p54 Table{8P9} 24|125b53 135m28
+31U14*Afficher_T 31>26 24|93s10 141b14 160l8 160t18
+31p26 Table{8P9} 24|141b26 145r18
+34U14*Donner_Resultats 34=32 24|162b14 203l8 203t24
+34p32 Table{8P9} 24|162b31 183r53 184r28
+37U32 Traiter 37>41 37>72 37>97 24|208s10
+37m41 Destination{10M9}
+37m72 Masque{10M9}
+37r97 Int{13|88R9}
+38u14*Pour_Chaque 38>27 24|205b14 209s10 215l8 215t19
+38p27 Table{8P9} 24|205b27 207r10 208r19 208r42 208r60 209r23
+41R9 T_Route_Table 43r27 45c9 50e14 24|37r23
+46m7*Destination{10M9} 24|38m20 114r30 147r37 148r37 149r37 150r37 208r29
+47m7*Masque{10M9} 24|39m20 114r58 115r38 152r37 153r37 154r37 155r37 208r52
+48r7*Interface_T{13|88R9} 24|40m20 116r31 156r33 208r70
+49p7*Suivante{8P9} 24|41m20 43m39 117r34 119r34 121r31 158r33 209r33
 X 24 routeur_simple.adb
 12i7 k{integer} 14m7 18r13 19r22 20r56 21m13 21r18 22r25 23r56 24m13 24r18
 . 25r25 26r56 27m13 27r18
@@ -228,31 +233,36 @@ X 24 routeur_simple.adb
 50e7 txt{character} 58m24
 51m7 IP1{23|10M9} 56m10 57r32
 54i11 i{integer}
-63e7 Valeur{character} 66m25 67r10 74r13
-64r7 Texte{13|88R9} 71m10
-86p7 Table0{23|8P9} 88m7 91r19 91r47 92r27 93r20 94m13 94r23 96m13 96r23
-. 98r20
-103m7 UN_OCTET{23|10M9}
-104m7 IP{23|10M9} 109m26 112r35
-105m7 M{23|10M9} 110m26 112r39
-106r7 I{13|88R9} 111m10 112r42
-119m7 UN_OCTET{23|10M9} 124r51 124r70 125r51 125r70 126r51 126r70 127r53
-. 129r46 129r65 130r46 130r65 131r46 131r65 132r48
-120p7 curseur{23|8P9} 122m7 123r13 124r25 125r25 126r25 127r25 129r25 130r25
-. 131r25 132r25 133r21 135m10 135r21
-140m7 UN_OCTET{23|10M9} 162r48 162r67 163r48 163r67 164r48 164r67 165r50
-141p7 paquets_txt{17|65P9} 154m12 154r12 160r31 168r32 175m14 175r14
-142p7 Resultats_txt{17|65P9} 153m14 153r14 162r18 162r87 163r18 163r87 164r18
-. 164r87 165r18 166r18 167r22 176m14 176r14
-143m7 IP{23|10M9} 160m60 161r35 162r43 163r43 164r43 165r43
-144r7 T_Fichier{13|88R9} 152m28
-145r7 P_Fichier{13|88R9} 152m39 154r44
-146r7 R_Fichier{13|88R9} 152m50 153r49
-147i7 i{integer} 156m10 160m50 160r50
-148b7 Stop{boolean} 157m10 160m44 168r48
-149m7 M_Trouvee{23|10M9} 161m39
-150r7 I_Trouvee{13|88R9} 161m50 166r39
-178r12 E{5|53R9} 179r39
+63m7 POIDS_FORT{23|10M9} 72r32 73r32
+64m7 Dest_1{23|10M9} 69m7 72r21 74m10 74r20
+65m7 Dest_2{23|10M9} 70m7 73r21 75m10 75r20
+66b7 Bool_1{boolean} 72m10 76r24 78r14
+67b7 Bool_2{boolean} 73m10 76r38
+86e7 Valeur{character} 89m25 90r10 97r13
+87r7 Texte{13|88R9} 94m10
+109p7 Table0{23|8P9} 111m7 114r19 114r47 115r27 116r20 117m13 117r23 119m13
+. 119r23 121r20
+126m7 UN_OCTET{23|10M9}
+127m7 IP{23|10M9} 132m26 135r35
+128m7 M{23|10M9} 133m26 135r39
+129r7 I{13|88R9} 134m10 135r42
+142m7 UN_OCTET{23|10M9} 147r51 147r70 148r51 148r70 149r51 149r70 150r53
+. 152r46 152r65 153r46 153r65 154r46 154r65 155r48
+143p7 curseur{23|8P9} 145m7 146r13 147r25 148r25 149r25 150r25 152r25 153r25
+. 154r25 155r25 156r21 158m10 158r21
+163m7 UN_OCTET{23|10M9} 185r48 185r67 186r48 186r67 187r48 187r67 188r50
+164p7 paquets_txt{17|65P9} 177m12 177r12 183r31 191r32 198m14 198r14
+165p7 Resultats_txt{17|65P9} 176m14 176r14 185r18 185r87 186r18 186r87 187r18
+. 187r87 188r18 189r18 190r22 199m14 199r14
+166m7 IP{23|10M9} 183m60 184r35 185r43 186r43 187r43 188r43
+167r7 T_Fichier{13|88R9} 175m28
+168r7 P_Fichier{13|88R9} 175m39 177r44
+169r7 R_Fichier{13|88R9} 175m50 176r49
+170i7 i{integer} 179m10 183m50 183r50
+171b7 Stop{boolean} 180m10 183m44 191r48
+172m7 M_Trouvee{23|10M9} 184m39
+173r7 I_Trouvee{13|88R9} 184m50 189r39
+201r12 E{5|53R9} 202r39
 X 25 system.ads
 67M9*Address
 X 35 s-memory.ads

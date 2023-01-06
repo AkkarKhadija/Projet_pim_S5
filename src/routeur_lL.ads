@@ -1,8 +1,9 @@
 with Ada.Text_IO;               use Ada.Text_IO;
 with Ada.Integer_Text_IO;       use Ada.Integer_Text_IO;
 with Ada.Strings.Unbounded;     use Ada.Strings.Unbounded;
-with Ada.Text_IO.Unbounded_IO; use  Ada.Text_IO.Unbounded_IO;
-with Routeur_Simple;           use Routeur_Simple;
+with Ada.Text_IO.Unbounded_IO;  use  Ada.Text_IO.Unbounded_IO;
+with Routeur_Simple;            use Routeur_Simple;
+with Ada.Calendar;              use Ada.Calendar;
 
 package Routeur_LL is
 
@@ -58,7 +59,7 @@ private
       Masque      : T_Adresse_IP;
       Interface_T : Unbounded_String;
       Frequence   : Integer;
-      Temps       : Duration;
+      Temps       : Time;
       Suivante    : T_Cache_L;
    end record;
 end Routeur_LL;

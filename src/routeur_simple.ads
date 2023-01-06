@@ -18,6 +18,8 @@ package Routeur_Simple is
    -- Lire un partie entiere d'une ligne d'un fichier
    procedure Get_IP (Fichier : in File_Type; IP : out T_Adresse_IP);
 
+   function Comparer_Masque (M_1 : in T_Adresse_IP; M_2 : in T_Adresse_IP) return Boolean;
+
    procedure Commande_Paquets(Paquets_txt : in File_Type; Stop : out Boolean; i : in out Integer; Table : in  T_Table; IP : out T_Adresse_IP);
 
    procedure Chercher_Table (Table : in T_Table; IP : in T_Adresse_IP; M_Trouve_T : out T_Adresse_IP; Int : out Unbounded_String);
