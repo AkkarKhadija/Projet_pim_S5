@@ -59,7 +59,7 @@ package body Routeur_Simple is
       end loop;
    end Get_IP;
 
-   procedure Commande_Paquets(Paquets_txt : in File_Type; Stop : out Boolean; i : in out Integer; Table : in out T_Table; IP : out T_Adresse_IP) is
+   procedure Commande_Paquets(Paquets_txt : in File_Type; Stop : out Boolean; i : in out Integer; Table : in  T_Table; IP : out T_Adresse_IP) is
       Valeur : Character;
       Texte : Unbounded_String;
    begin
@@ -81,6 +81,23 @@ package body Routeur_Simple is
    exception
          when others => null;
    end Commande_Paquets;
+
+   procedure Chercher_Table (Table : in T_Table; IP : in T_Adresse_IP; M_Trouve_T : out T_Adresse_IP; Int : out Unbounded_String) is
+      Table0 : T_Table;
+   begin
+      Table0 := Table;
+      M_Trouve_T := 0;
+      loop
+         if (IP = Table0.all.Destination) and Table0.all.Masque > M_Trouve_T then
+            M_Trouve_T := Table0.all.Masque;
+            Int := Table0.all.Interface_T;
+            Table0 := Table0.all.Suivante;
+         else
+            Table0 := Table0.all.Suivante;
+         end if;
+         exit when Table0.all.Suivante = null;
+      end loop;
+   end Chercher_Table;
 
    procedure Remplire_Table(Fichier : in File_Type; Table : in out T_Table) is
       UN_OCTET: constant T_Adresse_IP := 2 ** 8;
@@ -130,6 +147,8 @@ package body Routeur_Simple is
       R_Fichier   : Unbounded_String;
       i           : Integer;
       Stop        : Boolean;
+      M_Trouvee : T_Adresse_IP;
+      I_Trouvee : Unbounded_String;
    begin
       Analyser_L_Commande (T_Fichier, P_Fichier, R_Fichier);
       Create(Resultats_txt, Out_File, To_String(R_Fichier));
@@ -141,20 +160,23 @@ package body Routeur_Simple is
 
             Commande_Paquets (paquets_txt, Stop, i, Table, IP);
             Table0 := Table;
+            M_Trouvee := 0;
             loop
-               if (IP = Table0.all.Destination) and Table0.all.Masque /= 0 then
-                  Put (Resultats_txt, Natural ((Table0.all.Destination / UN_OCTET ** 3) mod UN_OCTET), 1); Put (Resultats_txt,".");
-                  Put (Resultats_txt, Natural ((Table0.all.Destination / UN_OCTET ** 2) mod UN_OCTET), 1); Put (Resultats_txt,".");
-                  Put (Resultats_txt, Natural ((Table0.all.Destination / UN_OCTET ** 1) mod UN_OCTET), 1); Put (Resultats_txt,".");
-                  Put (Resultats_txt, Natural  (Table0.all.Destination mod UN_OCTET), 1);
-                  Put (Resultats_txt, " " & Table0.all.Interface_T);
-                  New_Line(Resultats_txt);
+               if (IP = Table0.all.Destination) and Table0.all.Masque > M_Trouvee then
+                  M_Trouvee := Table0.all.Masque;
+                  I_Trouvee := Table0.all.Interface_T;
                   Table0 := Table0.all.Suivante;
                else
                   Table0 := Table0.all.Suivante;
                end if;
                exit when Table0.all.Suivante = null;
             end loop;
+            Put (Resultats_txt, Natural ((IP / UN_OCTET ** 3) mod UN_OCTET), 1); Put (Resultats_txt,".");
+            Put (Resultats_txt, Natural ((IP / UN_OCTET ** 2) mod UN_OCTET), 1); Put (Resultats_txt,".");
+            Put (Resultats_txt, Natural ((IP / UN_OCTET ** 1) mod UN_OCTET), 1); Put (Resultats_txt,".");
+            Put (Resultats_txt, Natural  (IP mod UN_OCTET), 1);
+            Put (Resultats_txt, " " & I_Trouvee);
+            New_Line(Resultats_txt);
          exit when End_Of_File(paquets_txt) or stop;
          end loop;
       exception

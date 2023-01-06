@@ -1,0 +1,4 @@
+routeur_ll.adb:78:07: warning: variable "Clock" is read but never assigned [-gnatwv]
+routeur_ll.adb:108:13: warning: null value not allowed here [enabled by default]
+routeur_ll.adb:108:13: warning: "Constraint_Error" will be raised at run time [enabled by default]
+routeur_ll.adb:220:07: warning: variable "Clock" is read but never assigned [-gnatwv]
