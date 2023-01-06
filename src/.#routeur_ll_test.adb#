@@ -1,0 +1,15 @@
+with Ada.Strings;               use Ada.Strings;	-- pour Both utilisé par Trim
+with Ada.Text_IO;               use Ada.Text_IO;
+with Ada.Integer_Text_IO;       use Ada.Integer_Text_IO;
+with Ada.Strings.Unbounded;     use Ada.Strings.Unbounded;
+with Ada.Text_IO.Unbounded_IO;  use Ada.Text_IO.Unbounded_IO;
+with ada.Unchecked_Deallocation; 
+with Ada.Command_Line;          use Ada.Command_Line;
+with Ada.Exceptions;            use Ada.Exceptions;	-- pour Exception_Message
+with Routeur_Simple;            use Routeur_Simple;
+with Ada.Calendar;              use Ada.Calendar;
+
+procedure Routeur_LL_test is
+begin
+   
+end Routeur_LL_test;
