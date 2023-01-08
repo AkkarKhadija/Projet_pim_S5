@@ -189,8 +189,15 @@ package body Routeur_LL is
 
 
    procedure Vider_Cache_FIFO (Cache : in out T_Cache_L) is
+      Cache0 : T_Cache_L;
    begin
-      Cache := Cache.all.Suivante;
+      if not Est_Vide_C (Cache) then
+         Cache0 := Cache;
+         Cache := Cache.all.Suivante;
+         Free(Cache0);
+      else
+         null;
+      end if;
    end Vider_Cache_FIFO;
 
    procedure Vider_Cache_LFU (Cache : in out T_Cache_L) is

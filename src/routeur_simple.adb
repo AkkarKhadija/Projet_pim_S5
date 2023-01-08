@@ -111,13 +111,17 @@ package body Routeur_Simple is
       Table0 := Table;
       M_Trouve_T := 0;
       loop
-         if (IP = Table0.all.Destination) and Table0.all.Masque > M_Trouve_T then
-            M_Trouve_T := Table0.all.Masque;
-            Int := Table0.all.Interface_T;
-            Table0 := Table0.all.Suivante;
+         if (IP and Table0.all.Masque) = Table0.all.Destination then
+            if Comparer_Masque(M_Trouve_T, Table0.all.Masque) then
+               M_Trouve_T := Table0.all.Masque;
+               Int := Table0.all.Interface_T;
+            else
+               null;
+            end if;
          else
-            Table0 := Table0.all.Suivante;
+            null;
          end if;
+         Table0 := Table0.all.Suivante;
          exit when Table0.all.Suivante = null;
       end loop;
    end Chercher_Table;
@@ -159,9 +163,8 @@ package body Routeur_Simple is
       end loop;
    end Afficher_T;
 
-   procedure Donner_Resultats(Table : in out T_Table) is
+   procedure Donner_Resultats(Table : in out T_Table; paquets_txt  :  in File_Type) is
       UN_OCTET     : constant T_Adresse_IP := 2 ** 8;
-      paquets_txt  :  File_Type;
       Resultats_txt: File_Type;
       IP           : T_Adresse_IP;
       T_Fichier   : Unbounded_String;
@@ -174,7 +177,6 @@ package body Routeur_Simple is
    begin
       Analyser_L_Commande (T_Fichier, P_Fichier, R_Fichier);
       Create(Resultats_txt, Out_File, To_String(R_Fichier));
-      Open(paquets_txt, In_File, To_String(P_Fichier));
       begin
          i := 1;
          Stop := False;
@@ -195,7 +197,6 @@ package body Routeur_Simple is
             Put ("Blancs en surplus à la fin du fichier.");
             null;
       end;
-      Close (paquets_txt);
       Close (Resultats_txt);
    exception
       when E : others =>
