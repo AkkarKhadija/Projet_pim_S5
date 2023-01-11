@@ -9,12 +9,13 @@ package Routeur_LL is
 
    type T_Cache_L is limited private;
 
+   -- Tester c'est le cache est vide ou non
    function Est_Vide_C (Cache : in  T_Cache_L) return Boolean;
 
    -- Lire et traduire la ligne de commande
    procedure Analyser_L_Commande_C (Taille_C : out Integer; T_Fichier : out Unbounded_String; P_Fichier : out Unbounded_String; R_Fichier : out Unbounded_String; P_Cache : out Unbounded_String; Stat : out Boolean);
 
-   -- Initialiser le cache
+   -- Initialiser le cache à null
    procedure Init_Cache (Cache : in out T_Cache_L) with
      post => Est_Vide_C(Cache );
 

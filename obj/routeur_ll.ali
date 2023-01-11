@@ -26,7 +26,7 @@ RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
 RV NO_IMPLEMENTATION_PRAGMAS
 RV NO_ELABORATION_CODE
 
-U routeur_ll%b		routeur_ll.adb		86044deb NE OO PK
+U routeur_ll%b		routeur_ll.adb		acb089fb NE OO PK
 W ada%s			ada.ads			ada.ali
 W ada.calendar%s	a-calend.adb		a-calend.ali
 W ada.command_line%s	a-comlin.adb		a-comlin.ali
@@ -51,7 +51,7 @@ Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
 Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
 Z system.val_int%s	s-valint.ads		s-valint.ali
 
-U routeur_ll%s		routeur_ll.ads		fa6bd4b4 EE OO PK
+U routeur_ll%s		routeur_ll.ads		be58e7f8 EE OO PK
 W ada%s			ada.ads			ada.ali
 W ada.calendar%s	a-calend.adb		a-calend.ali
 Z ada.exceptions%s	a-except.adb		a-except.ali
@@ -92,9 +92,9 @@ D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
 D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
 D interfac.ads		20210520051132 edec285f interfaces%s
 D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
-D routeur_ll.ads	20230106191148 5a0fb73b routeur_ll%s
-D routeur_ll.adb	20230106195754 f1a207d1 routeur_ll%b
-D routeur_simple.ads	20230106195500 c938914d routeur_simple%s
+D routeur_ll.ads	20230110110328 5a0fb73b routeur_ll%s
+D routeur_ll.adb	20230111220204 9f25f08d routeur_ll%b
+D routeur_simple.ads	20230110104716 8d0ba201 routeur_simple%s
 D system.ads		20210520051136 2ffa5114 system%s
 D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
 D s-conca2.ads		20210520051132 02a0d7d0 system.concat_2%s
@@ -128,41 +128,41 @@ D s-valueu.ads		20210520051134 7b8fccf5 system.value_u%s
 D s-wchcon.ads		20210520051136 1b7d22d2 system.wch_con%s
 D unchconv.ads		20210520051136 ca2f9e18 unchecked_conversion%s
 G a e
-G c Z s b [est_vide_c routeur_ll 12 13 none]
-G c Z s b [analyser_l_commande_c routeur_ll 15 14 none]
-G c Z s b [init_cache routeur_ll 18 14 none]
-G c Z s b [taille_cache routeur_ll 22 13 none]
-G c Z s b [enregistrer_cache_l routeur_ll 26 14 none]
-G c Z s b [supprimer_cache routeur_ll 30 14 none]
-G c Z s b [afficher_cache_l routeur_ll 33 14 none]
-G c Z s b [commande_paquets_cl routeur_ll 36 14 none]
-G c Z s b [chercher_cache routeur_ll 39 13 none]
-G c Z s b [vider_cache_fifo routeur_ll 42 14 none]
-G c Z s b [vider_cache_lfu routeur_ll 45 14 none]
-G c Z s b [vider_cache_lru routeur_ll 48 14 none]
-G c Z s b [donner_resultats_cl routeur_ll 51 14 none]
-G c Z s s [t_route_clDI routeur_ll 57 9 none]
-G c Z s s [t_route_clDA routeur_ll 57 9 none]
-G c Z s s [t_route_clDF routeur_ll 57 9 none]
-G c Z s s [t_route_clIP routeur_ll 57 9 none]
+G c Z s b [est_vide_c routeur_ll 13 13 none]
+G c Z s b [analyser_l_commande_c routeur_ll 16 14 none]
+G c Z s b [init_cache routeur_ll 19 14 none]
+G c Z s b [taille_cache routeur_ll 23 13 none]
+G c Z s b [enregistrer_cache_l routeur_ll 27 14 none]
+G c Z s b [supprimer_cache routeur_ll 31 14 none]
+G c Z s b [afficher_cache_l routeur_ll 34 14 none]
+G c Z s b [commande_paquets_cl routeur_ll 37 14 none]
+G c Z s b [chercher_cache routeur_ll 40 13 none]
+G c Z s b [vider_cache_fifo routeur_ll 43 14 none]
+G c Z s b [vider_cache_lfu routeur_ll 46 14 none]
+G c Z s b [vider_cache_lru routeur_ll 49 14 none]
+G c Z s b [donner_resultats_cl routeur_ll 52 14 none]
+G c Z s s [t_route_clDI routeur_ll 58 9 none]
+G c Z s s [t_route_clDA routeur_ll 58 9 none]
+G c Z s s [t_route_clDF routeur_ll 58 9 none]
+G c Z s s [t_route_clIP routeur_ll 58 9 none]
 G c Z b b [free routeur_ll 14 14 none]
-G r c none [enregistrer_cache_l routeur_ll 26 14 none] [comparer_masque routeur_simple 21 13 none]
-G r c none [commande_paquets_cl routeur_ll 36 14 none] [afficher_t routeur_simple 31 14 none]
-G r c none [commande_paquets_cl routeur_ll 36 14 none] [commande_paquets routeur_simple 23 14 none]
-G r c none [commande_paquets_cl routeur_ll 36 14 none] [get_ip routeur_simple 19 14 none]
-G r c none [donner_resultats_cl routeur_ll 51 14 none] [afficher_t routeur_simple 31 14 none]
-G r c none [donner_resultats_cl routeur_ll 51 14 none] [commande_paquets routeur_simple 23 14 none]
-G r c none [donner_resultats_cl routeur_ll 51 14 none] [get_ip routeur_simple 19 14 none]
-G r c none [donner_resultats_cl routeur_ll 51 14 none] [chercher_table routeur_simple 25 14 none]
-G r c none [donner_resultats_cl routeur_ll 51 14 none] [comparer_masque routeur_simple 21 13 none]
+G r c none [commande_paquets_cl routeur_ll 37 14 none] [afficher_t routeur_simple 34 14 none]
+G r c none [commande_paquets_cl routeur_ll 37 14 none] [commande_paquets routeur_simple 25 14 none]
+G r c none [commande_paquets_cl routeur_ll 37 14 none] [get_ip routeur_simple 19 14 none]
+G r c none [chercher_cache routeur_ll 40 13 none] [comparer_masque routeur_simple 22 13 none]
+G r c none [donner_resultats_cl routeur_ll 52 14 none] [afficher_t routeur_simple 34 14 none]
+G r c none [donner_resultats_cl routeur_ll 52 14 none] [commande_paquets routeur_simple 25 14 none]
+G r c none [donner_resultats_cl routeur_ll 52 14 none] [get_ip routeur_simple 19 14 none]
+G r c none [donner_resultats_cl routeur_ll 52 14 none] [chercher_table routeur_simple 28 14 none]
+G r c none [donner_resultats_cl routeur_ll 52 14 none] [comparer_masque routeur_simple 22 13 none]
 X 1 ada.ads
 16K9*Ada 20e8 25|1r6 1r37 2r6 2r37 3r6 3r37 4r6 4r38 6r6 6r37 26|1r6 1r37
 . 2r6 2r37 3r6 3r37 4r6 4r37 5r6 5r37 6r6 7r6 7r37 8r6 8r37 10r6 10r37 15r10
 X 2 a-calend.ads
 36K13*Calendar 413e17 25|6w10 6r41 26|10w10 10r41
-42I9*Time<226I9> 25|62r21 26|217r18
-56V13*Clock{42I9} 26|84s29 95s29 221s19
-120V14*"<"{boolean} 26|223s30
+42I9*Time<226I9> 25|63r21 26|219r18
+56V13*Clock{42I9} 26|84s29 89s29 223s19
+120V14*"<"{boolean} 26|225s30
 226I9 Time_Rep<long_long_integer>
 X 5 a-comlin.ads
 36K13*Command_Line 144e21 26|7w10 7r41
@@ -171,162 +171,163 @@ X 5 a-comlin.ads
 . 45s16 48s16 50s16 51s45
 X 6 a-except.ads
 44K13*Exceptions 289e19 26|8w10 8r41
-84V13*Exception_Message{string} 26|281s20
+84V13*Exception_Message{string} 26|280s20
 X 8 a-inteio.ads
 18K13*Integer_Text_IO[19|46] 25|2w10 2r41 26|3w10 3r41
 X 11 a-string.ads
 16K13*Strings 35e16 25|3r10 3r41 26|1w10 1r41 4r10 4r41
 X 14 a-strunb.ads
 83K21*Unbounded 765e26 25|3w18 3r49 26|4w18 4r49
-88R9*Unbounded_String<7|43R9> 744e15 25|15r77 15r111 15r145 15r177 26r110
-. 39r123 60r21 26|22r77 22r111 22r145 22r177 77r110 141r15 169r124 241r20
-. 243r22 245r22
+88R9*Unbounded_String<7|43R9> 744e15 25|16r77 16r111 16r145 16r177 27r110
+. 40r123 61r21 26|22r77 22r111 22r145 22r177 77r110 135r15 163r124 243r23
+. 245r23 247r23
 104V13*To_Unbounded_String{88R9} 26|27s20 28s20 29s20 30s18 37s26 40s26 43s26
 . 51s24
-168V14*"&"{88R9} 26|133s19 269s37
+168V14*"&"{88R9} 26|127s19 268s37
 X 18 a-textio.ads
 58K13*Text_IO 725e16 25|1w10 1r41 4r10 4r42 26|2w10 2r41 5r10 5r41
-65P9*File_Type 25|36r51 51r99 26|139r51 235r99 237r23
-67n32*Out_File{67E9} 26|247r29
-97U14*Create 26|247s7
-127U14*Close 26|278s7
-256U14*New_Line 26|270s13
-262U14*New_Line 26|134s10 146s10 153s10
-310V13*End_Of_File{boolean} 26|271s20
-376U14*Get 26|143s7
-457U14*Put 26|265s82 266s82 267s82
-463U14*Put 26|124s85 125s85 126s85 128s10 129s80 130s80 131s80 145s10 145s52
-. 152s10 152s52 159s10 159s51 275s13
-506U14*Put_Line 26|281s10
-545X4*End_Error 26|274r15
+65P9*File_Type 25|37r51 52r99 26|133r51 237r99 239r23
+67n32*Out_File{67E9} 26|249r29
+97U14*Create 26|249s7
+127U14*Close 26|277s7
+256U14*New_Line 26|269s13
+262U14*New_Line 26|128s10 140s10 147s10
+310V13*End_Of_File{boolean} 26|270s20
+376U14*Get 26|137s7
+457U14*Put 26|264s82 265s82 266s82
+463U14*Put 26|118s85 119s85 120s85 122s10 123s80 124s80 125s80 139s10 139s52
+. 146s10 146s52 153s10 153s51 274s13
+506U14*Put_Line 26|280s10
+545X4*End_Error 26|273r15
 X 19 a-tiinio.ads
-68U14*Put 26|265s13[8|18] 266s13[8|18] 267s13[8|18] 268s13[8|18]
-80U14*Put 26|124s10[8|18] 125s10[8|18] 126s10[8|18] 127s10[8|18] 129s10[8|18]
-. 130s10[8|18] 131s10[8|18] 132s10[8|18]
+68U14*Put 26|264s13[8|18] 265s13[8|18] 266s13[8|18] 267s13[8|18]
+80U14*Put 26|118s10[8|18] 119s10[8|18] 120s10[8|18] 121s10[8|18] 123s10[8|18]
+. 124s10[8|18] 125s10[8|18] 126s10[8|18]
 X 20 a-tiunio.ads
 25K21*Unbounded_IO 61e29 25|4w18 4r50 26|5w18 5r49
-27U14*Put=30:42 26|269s13
-32U14*Put=34:42 26|133s10
-45V13*Get_Line=47:42{14|88R9} 26|148s19 155s19
+27U14*Put=30:42 26|268s13
+32U14*Put=34:42 26|127s10 256s13
+45V13*Get_Line=47:42{14|88R9} 26|142s19 149s19
 X 22 a-uncdea.ads
 17+9 Object 26|15r38
 18P9 Name(17+9) 26|15r60
 20u15*Unchecked_Deallocation 26|6w10 15r14
 X 25 routeur_ll.ads
-8K9*Routeur_LL 55E9 65l5 65e15 26|12b14 284l5 284t15
-10P9*T_Cache_L 12r37 18r41 22r39 26r50 30r45 33r43 36r138 39r40 42r47 45r46
-. 48r46 51r71 56c9 63r21 26|15r68 17r37 59r41 64r39 65r17 77r50 101r45 102r16
-. 118r43 120r17 139r138 169r40 170r16 191r47 196r46 197r16 215r46 216r16
-. 235r71
-12V13*Est_Vide_C{boolean} 12>25 19s14 27s18 26|17b13 20l8 20t18 105s10
-12p25 Cache{10P9} 26|17b25 19r14
-15U14*Analyser_L_Commande_C 15<37 15<61 15<95 15<129 15<163 15<195 26|22b14
+8K9*Routeur_LL 56E9 66l5 66e15 26|12b14 283l5 283t15
+10P9*T_Cache_L 13r37 19r41 23r39 27r50 31r45 34r43 37r138 40r40 43r47 46r46
+. 49r46 52r71 57c9 64r21 26|15r68 17r37 59r41 64r39 65r17 77r50 95r45 96r16
+. 112r43 114r17 133r138 163r40 164r16 186r47 187r16 198r46 199r16 217r46
+. 218r16 237r71
+13V13*Est_Vide_C{boolean} 13>25 20s14 28s18 26|17b13 20l8 20t18 99s10 170s17
+. 189s14
+13p25 Cache{10P9} 26|17b25 19r14
+16U14*Analyser_L_Commande_C 16<37 16<61 16<95 16<129 16<163 16<195 26|22b14
 . 57l8 57t29
-15i37 Taille_C{integer} 26|22b37 26m7 34m13
-15r61 T_Fichier{14|88R9} 26|22b61 27m7 37m13
-15r95 P_Fichier{14|88R9} 26|22b95 28m7 40m13
-15r129 R_Fichier{14|88R9} 26|22b129 29m7 43m13
-15r163 P_Cache{14|88R9} 26|22b163 30m7 51m13
-15b195 Stat{boolean} 26|22b195 31m7 46m13
-18U14*Init_Cache 18=26 26|59b14 62l8 62t18
-18p26 Cache{10P9} 19r25 26|59b26 61m7
-22V13*Taille_Cache{integer} 22>27 23r14 26|64b13 75l8 75t20
-22p27 Cache{10P9} 26|64b27 69r18 72r21
-26U14*Enregistrer_Cache_L 26=35 26>61 26>82 26>103 26|77b14 97s10 99l8 99t27
-. 257s19 263s16
-26p35 Cache{10P9} 27r29 26|77b35 79r10 80m10 81r10 82r10 83r10 84r10 85r10
-. 86r10 87r13 88r29 89r13 90r13 91r13 91r36 93r13 93r36 95r10 97r31
-26m61 D{27|10M9} 26|77b61 81r35 87r37 97r51
-26m82 M{27|10M9} 26|77b82 82r30 88r47 89r33 97r54
-26r103 I{14|88R9} 26|77b103 83r35 90r38 97r57
-30U14*Supprimer_Cache 30=30 30>56 26|101b14 112s10 116l8 116t23 212s7 231s7
-30p30 Cache{10P9} 26|101b30 105r21 107r13 108r20 109m10 109r19 112r26
-30m56 IP{27|10M9} 26|101b56 107r37 112r46
-33U14*Afficher_Cache_L 33>32 26|118b14 137l8 137t24 154s10
-33p32 Cache{10P9} 26|118b32 122r18
-36U14*Commande_Paquets_CL 36>34 36<62 36=82 36>102 36=123 36<149 26|139b14
-. 157s10 167l8 167t27 252s13
-36p34 Paquets_txt{18|65P9} 26|139b34 143r12 148r28 150r27 155r28 157r31 162r17
-36b62 Stop{boolean} 26|139b62 150m40 157m44 160m10
-36i82 i{integer} 26|139b82 145r47 149m10 149r15 150m46 152r47 156m10 156r15
-. 157m50 159r45 163m10 163r15
-36p102 Table{27|8P9} 26|139b102 147r21 150r49 157r53
-36p123 Cache{10P9} 26|139b123 154r27 157m60
-36m149 IP{27|10M9} 26|139b149 150m56 157m67 162m30
-39V13*Chercher_Cache{boolean} 39>29 39>51 39<73 39<104 26|169b13 188l8 188t22
-. 254s16
-39p29 Cache{10P9} 26|169b29 174r17
-39m51 IP{27|10M9} 26|169b51 177r14
-39m73 M_Trouve_C{27|10M9} 26|169b73 175m7 178m13
-39r104 Int_Trouve_C{14|88R9} 26|169b105 179m13
-42U14*Vider_Cache_FIFO 42=32 26|191b14 194l8 194t24
-42p32 Cache{10P9} 26|191b32 193m7 193r16
-45U14*Vider_Cache_LFU 45=31 26|196b14 213l8 213t23
-45p31 Cache{10P9} 26|196b31 201r17 212m23
-48U14*Vider_Cache_LRU 48=31 26|215b14 233l8 233t23
-48p31 Cache{10P9} 26|215b31 220r17 231m23
-51U14*Donner_Resultats_CL 51>35 51=56 51>82 26|235b14 282l8 282t27
-51p35 Table{27|8P9} 26|235b35 252r56 253r29
-51p56 Cache{10P9} 26|235b56 252m63 254r32 257m40 263m37
-51p82 Paquets_txt{18|65P9} 26|235b82 252r34 271r32
-55R9 T_Route_CL 56r29 57c9 64e14 26|15r48 80r23
-58m7*Destination{27|10M9} 26|81m20 87r23 107r23 124r37 125r37 126r37 127r37
-. 177r53 206r35 225r30
-59m7*Masque{27|10M9} 26|82m20 88r39 89m23 129r37 130r37 131r37 132r37 177r32
-. 178r38
-60r7*Interface_T{14|88R9} 26|83m20 90m23 133r33 179r40
-61i7*Frequence{integer} 26|85m20 91m23 91r46 93m23 93r46 202r26 204r24 205r32
-62i7*Temps{2|42I9} 26|84m20 95m20 223r24 224r36
-63p7*Suivante{10P9} 26|72r31 86m20 97m41 109r29 112m36 135r33 184r31 193r26
-. 210r31 226r34 228r34
+16i37 Taille_C{integer} 26|22b37 26m7 34m13
+16r61 T_Fichier{14|88R9} 26|22b61 27m7 37m13
+16r95 P_Fichier{14|88R9} 26|22b95 28m7 40m13
+16r129 R_Fichier{14|88R9} 26|22b129 29m7 43m13
+16r163 P_Cache{14|88R9} 26|22b163 30m7 51m13
+16b195 Stat{boolean} 26|22b195 31m7 46m13
+19U14*Init_Cache 19=26 26|59b14 62l8 62t18
+19p26 Cache{10P9} 20r25 26|59b26 61m7
+23V13*Taille_Cache{integer} 23>27 24r14 26|64b13 75l8 75t20
+23p27 Cache{10P9} 26|64b27 69r18
+27U14*Enregistrer_Cache_L 27=35 27>61 27>82 27>103 26|77b14 91s10 93l8 93t27
+. 262s16
+27p35 Cache{10P9} 28r29 26|77b35 79r10 80m10 81r10 82r10 83r10 84r10 85r10
+. 86r10 87r14 88r10 88r33 89r10 91r31
+27m61 D{27|10M9} 26|77b61 81r35 87r46 91r51
+27m82 M{27|10M9} 26|77b82 82r30 87r40 91r54
+27r103 I{14|88R9} 26|77b103 83r35 91r57
+31U14*Supprimer_Cache 31=30 31>56 26|95b14 106s10 110l8 110t23 214s7 233s7
+31p30 Cache{10P9} 26|95b30 99r21 101r13 102r20 103m10 103r19 106r26
+31m56 IP{27|10M9} 26|95b56 101r37 106r46
+34U14*Afficher_Cache_L 34>32 26|112b14 131l8 131t24 148s10
+34p32 Cache{10P9} 26|112b32 116r18
+37U14*Commande_Paquets_CL 37>34 37<62 37=82 37>102 37=123 37<149 26|133b14
+. 151s10 161l8 161t27 254s13
+37p34 Paquets_txt{18|65P9} 26|133b34 137r12 142r28 144r27 149r28 151r31 156r17
+37b62 Stop{boolean} 26|133b62 144m40 151m44 154m10
+37i82 i{integer} 26|133b82 139r47 143m10 143r15 144m46 146r47 150m10 150r15
+. 151m50 153r45 157m10 157r15
+37p102 Table{27|8P9} 26|133b102 141r21 144r49 151r53
+37p123 Cache{10P9} 26|133b123 148r27 151m60
+37m149 IP{27|10M9} 26|133b149 144m56 151m67 156m30
+40V13*Chercher_Cache{boolean} 40>29 40>51 40<73 40<104 26|163b13 183l8 183t22
+. 257s16
+40p29 Cache{10P9} 26|163b29 168r17
+40m51 IP{27|10M9} 26|163b51 171r14
+40m73 M_Trouve_C{27|10M9} 26|163b73 169m7 172r32 173m16
+40r104 Int_Trouve_C{14|88R9} 26|163b105 174m16
+43U14*Vider_Cache_FIFO 43=32 26|186b14 196l8 196t24
+43p32 Cache{10P9} 26|186b32 189r26 190r20 191m10 191r19
+46U14*Vider_Cache_LFU 46=31 26|198b14 215l8 215t23
+46p31 Cache{10P9} 26|198b31 203r17 214m23
+49U14*Vider_Cache_LRU 49=31 26|217b14 235l8 235t23
+49p31 Cache{10P9} 26|217b31 222r17 233m23
+52U14*Donner_Resultats_CL 52>35 52=56 52>82 26|237b14 281l8 281t27
+52p35 Table{27|8P9} 26|237b35 254r56 255r29
+52p56 Cache{10P9} 26|237b56 254m63 257r32 262m37
+52p82 Paquets_txt{18|65P9} 26|237b82 254r34 270r32
+56R9 T_Route_CL 57r29 58c9 65e14 26|15r48 80r23
+59m7*Destination{27|10M9} 26|81m20 87r24 101r23 118r37 119r37 120r37 121r37
+. 171r53 208r35 227r30
+60m7*Masque{27|10M9} 26|82m20 123r37 124r37 125r37 126r37 171r32 172r55 173r41
+61r7*Interface_T{14|88R9} 26|83m20 127r33 174r43
+62i7*Frequence{integer} 26|85m20 88m20 88r43 204r26 206r24 207r32
+63i7*Temps{2|42I9} 26|84m20 89m20 225r24 226r36
+64p7*Suivante{10P9} 26|72r33 86m20 91m41 103r29 106m36 129r33 180r31 191r29
+. 212r31 228r34 230r34
 X 26 routeur_ll.adb
-14U14 Free[22|20] 110s10
+14U14 Free[22|20] 104s10 192s10
 23i7 k{integer} 25m7 32r13 33r22 34r49 35m13 35r18 36r25 37r56 38m13 38r18
 . 39r25 40r56 41m13 41r18 42r25 43r56 44m13 44r18 45r25 47m13 47r18 48r25
 . 49m13 49r18 50r25 51r54 52m13 52r18
-65p7 Curseur{25|10P9} 69m7 70r13 72m10
+65p7 Curseur{25|10P9} 69m7 70r13 72m10 72r21
 66i7 Taille{integer} 68m7 71m10 71r20 74r14
-102p7 Cache0{25|10P9} 108m10 110m15 110r15
-103X7 IP_Absente_Cache 106r16 115r15
-119m7 UN_OCTET{27|10M9} 124r51 124r70 125r51 125r70 126r51 126r70 127r53
-. 129r46 129r65 130r46 130r65 131r46 131r65 132r48
-120p7 curseur{25|10P9} 122m7 123r13 124r25 125r25 126r25 127r25 129r25 130r25
-. 131r25 132r25 133r21 135m10 135r21
-140e7 Valeur{character} 143m25 144r10 151r13 158r13
-141r7 Texte{14|88R9} 148m10 155m10
-170p7 Cache0{25|10P9} 174m7 177r21 177r42 178r27 179r29 184m10 184r20 185r20
-171b7 Existe{boolean} 173m7 180m13 187r14
-197p7 Cache0{25|10P9} 201m7 202r15 203r13 204r13 205r21 206r24 210m10 210r20
-198i7 Freq{integer} 202m7 204r36 205m13
-199m7 IP_Supp{27|10M9} 206m13 212r30
-216p7 Cache0{25|10P9} 220m7 222r13 223r13 224r25 225r19 226m13 226r23 228m13
-. 228r23
-217i7 Time_use{2|42I9} 221m7 223r32 224m13
-218m7 IP{27|10M9} 225m13 231r30
-236m7 UN_OCTET{27|10M9} 265r48 265r67 266r48 266r67 267r48 267r67 268r50
-237p7 Resultats_txt{18|65P9} 247m14 247r14 265r18 265r87 266r18 266r87 267r18
-. 267r87 268r18 269r18 270r22 278m13 278r13
-238b7 Stop{boolean} 250m10 252m47 271r48
-239m7 IP{27|10M9} 252m70 253r36 254r39 257r47 263r44 265r43 266r43 267r43
-. 268r43
-240i7 i{integer} 249m10 252m53 252r53
-241r7 Int_Finale{14|88R9} 256m19 259m19 262m16 269r39
-242m7 M_Trouve_C{27|10M9} 254m43 254r43 255r36
-243r7 Int_Trouve_C{14|88R9} 254m55 254r55 259r33
-244m7 M_Trouve_T{27|10M9} 253m40 255r48 257r51 263r48
-245r7 Int_Trouve_T{14|88R9} 253m52 256r33 257r63 262r30 263r60
-280r12 E{6|53R9} 281r39
+96p7 Cache0{25|10P9} 102m10 104m15 104r15
+97X7 IP_Absente_Cache 100r16 109r15
+113m7 UN_OCTET{27|10M9} 118r51 118r70 119r51 119r70 120r51 120r70 121r53
+. 123r46 123r65 124r46 124r65 125r46 125r65 126r48
+114p7 curseur{25|10P9} 116m7 117r13 118r25 119r25 120r25 121r25 123r25 124r25
+. 125r25 126r25 127r21 129m10 129r21
+134e7 Valeur{character} 137m25 138r10 145r13 152r13
+135r7 Texte{14|88R9} 142m10 149m10
+164p7 Cache0{25|10P9} 168m7 170r28 171r21 171r42 172r44 173r30 174r32 180m10
+. 180r20
+165b7 Existe{boolean} 167m7 176m13 182r14
+187p7 Cache0{25|10P9} 190m10 192m15 192r15
+199p7 Cache0{25|10P9} 203m7 204r15 205r13 206r13 207r21 208r24 212m10 212r20
+200i7 Freq{integer} 204m7 206r36 207m13
+201m7 IP_Supp{27|10M9} 208m13 214r30
+218p7 Cache0{25|10P9} 222m7 224r13 225r13 226r25 227r19 228m13 228r23 230m13
+. 230r23
+219i7 Time_use{2|42I9} 223m7 225r32 226m13
+220m7 IP{27|10M9} 227m13 233r30
+238m7 UN_OCTET{27|10M9} 264r48 264r67 265r48 265r67 266r48 266r67 267r50
+239p7 Resultats_txt{18|65P9} 249m14 249r14 264r18 264r87 265r18 265r87 266r18
+. 266r87 267r18 268r18 269r22 277m13 277r13
+240b7 Stop{boolean} 252m10 254m47 270r48
+241m7 IP{27|10M9} 254m70 255r36 257r39 262r44 264r43 265r43 266r43 267r43
+242i7 i{integer} 251m10 254m53 254r53
+243r7 Int_Finale{14|88R9} 258m16 261m16 268r39
+244m7 M_Trouve_C{27|10M9} 257m43 257r43
+245r7 Int_Trouve_C{14|88R9} 257m55 257r55 258r30
+246m7 M_Trouve_T{27|10M9} 255m40 262r48
+247r7 Int_Trouve_T{14|88R9} 255m52 256r17 261r30 262r60
+279r12 E{6|53R9} 280r39
 X 27 routeur_simple.ads
-6K9*Routeur_Simple 25|5w6 5r37 26|9w6 9r37 27|51e19
-8P9*T_Table 25|36r114 51r47 26|139r114 235r47
-10M9*T_Adresse_IP 25|26r68 26r89 30r64 36r158 39r59 39r90 58r21 59r21 26|77r68
-. 77r89 101r64 119r26 139r158 169r59 169r90 199r17 218r12 236r26 239r12 242r20
-. 244r20
-19U14*Get_IP 26|162s10
-21V13*Comparer_Masque{boolean} 26|88s13 255s19
-23U14*Commande_Paquets 26|150s10
-25U14*Chercher_Table 26|253s13
-31U14*Afficher_T 26|147s10
+6K9*Routeur_Simple 25|5w6 5r37 26|9w6 9r37 27|54e19
+8P9*T_Table 25|37r114 52r47 26|133r114 237r47
+10M9*T_Adresse_IP 25|27r68 27r89 31r64 37r158 40r59 40r90 59r21 60r21 26|77r68
+. 77r89 95r64 113r26 133r158 163r59 163r90 201r17 220r12 238r31 241r23 244r23
+. 246r23
+19U14*Get_IP 26|156s10
+22V13*Comparer_Masque{boolean} 26|172s16
+25U14*Commande_Paquets 26|144s10
+28U14*Chercher_Table 26|255s13
+34U14*Afficher_T 26|141s10
 X 28 system.ads
 67M9*Address
 X 38 s-memory.ads

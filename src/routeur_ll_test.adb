@@ -10,7 +10,7 @@ with Routeur_Simple;            use Routeur_Simple;
 with Routeur_LL;                use Routeur_LL;
 with Ada.Calendar;              use Ada.Calendar;
 
--- Tester le routeur avec cache LL pour un exemple de fichier
+-- Tester le routeur avec cache LL pour un exemples de fichiers
 procedure Routeur_LL_test is
    Paquets_txt : File_Type;  -- le fichier qui contient les paquets à router
    Table_txt   : File_Type;  -- le ficher qui remplit la table de routage
@@ -22,6 +22,7 @@ procedure Routeur_LL_test is
    Stat        : Boolean;    -- la statistique choisit
    Table       : T_Table;    -- le nom de la liste chainée : table de routage
    Cache       : T_Cache_L;  -- le nom de la liste chainée : le cache
+   
 begin
    -- Analyser la ligne de commande
    Analyser_L_Commande_C(Taille_C, T_Fichier, P_Fichier, R_Fichier, P_Cache, Stat);
@@ -39,14 +40,17 @@ begin
          Donner_Resultats_CL(Table, Cache, Paquets_txt);
          
          -- Vider le cache en suivant la politique choisie
-         if P_Cache = To_Unbounded_String("FIFO") then
-            Vider_Cache_FIFO(Cache);
-         elsif P_Cache = To_Unbounded_String("LFU") then
-            Vider_Cache_LFU(Cache);
-         elsif P_Cache = To_Unbounded_String("LRU") then
-            Vider_Cache_LRU(Cache);
-         else 
-            null;
+         
+         if Taille_Cache(Cache) >= Taille_C then
+            if P_Cache = To_Unbounded_String("FIFO") then
+               Vider_Cache_FIFO(Cache);
+            elsif P_Cache = To_Unbounded_String("LFU") then
+               Vider_Cache_LFU(Cache);
+            elsif P_Cache = To_Unbounded_String("LRU") then
+               Vider_Cache_LRU(Cache);
+            else 
+               null;
+            end if;
          end if;
          
          -- Afficher le contenu de la liste chainée Cache

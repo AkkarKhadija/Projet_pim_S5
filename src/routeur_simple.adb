@@ -109,11 +109,11 @@ package body Routeur_Simple is
       Table0 : T_Table;
    begin
       Table0 := Table;
-      M_Trouve_T := 0;
+      M_Trouve_T := T_Adresse_IP(0);
       loop
          if (IP and Table0.all.Masque) = Table0.all.Destination then
-            if Comparer_Masque(M_Trouve_T, Table0.all.Masque) then
-               M_Trouve_T := Table0.all.Masque;
+            if Comparer_Masque(M_Trouve_T, T_Adresse_IP(Table0.all.Masque)) then
+               M_Trouve_T := T_Adresse_IP(Table0.all.Masque);
                Int := Table0.all.Interface_T;
             else
                null;

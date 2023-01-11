@@ -10,8 +10,7 @@ with Routeur_Simple;            use Routeur_Simple;
 with Routeur_LL;                use Routeur_LL;
 with Ada.Calendar;              use Ada.Calendar;
 
--- Tester le routeur avec cache LL pour un exemples de fichiers
-procedure Routeur_LL_test is
+procedure mainll is
    Paquets_txt : File_Type;  -- le fichier qui contient les paquets à router
    Table_txt   : File_Type;  -- le ficher qui remplit la table de routage
    Taille_C    : Integer;    -- la taille du cache
@@ -22,12 +21,11 @@ procedure Routeur_LL_test is
    Stat        : Boolean;    -- la statistique choisit
    Table       : T_Table;    -- le nom de la liste chainée : table de routage
    Cache       : T_Cache_L;  -- le nom de la liste chainée : le cache
-   
+   M_Trouve_T : T_Adresse_IP;
+   INT : Unbounded_String;
+   IP : T_Adresse_IP;
 begin
-   -- Analyser la ligne de commande
    Analyser_L_Commande_C(Taille_C, T_Fichier, P_Fichier, R_Fichier, P_Cache, Stat);
-   
-   -- ouvrir les deux fichers paquets.txt et table.txt
    Open(Paquets_txt, In_File, To_String (P_Fichier));
    Open(Table_txt, In_File, To_String (T_Fichier));
    begin
@@ -40,14 +38,17 @@ begin
          Donner_Resultats_CL(Table, Cache, Paquets_txt);
          
          -- Vider le cache en suivant la politique choisie
-         if P_Cache = To_Unbounded_String("FIFO") then
-            Vider_Cache_FIFO(Cache);
-         elsif P_Cache = To_Unbounded_String("LFU") then
-            Vider_Cache_LFU(Cache);
-         elsif P_Cache = To_Unbounded_String("LRU") then
-            Vider_Cache_LRU(Cache);
-         else 
-            null;
+         
+         if Taille_Cache(Cache) >= Taille_C then
+            if P_Cache = To_Unbounded_String("FIFO") then
+               Vider_Cache_FIFO(Cache);
+            elsif P_Cache = To_Unbounded_String("LFU") then
+               Vider_Cache_LFU(Cache);
+            elsif P_Cache = To_Unbounded_String("LRU") then
+               Vider_Cache_LRU(Cache);
+            else 
+               null;
+            end if;
          end if;
          
          -- Afficher le contenu de la liste chainée Cache
@@ -64,9 +65,10 @@ begin
          Donner_Resultats(Table, Paquets_txt);
       end if;
    end;
-   
+   IP:= 3299344386;
+   Chercher_Table(Table, IP, M_Trouve_T, INT);
+   Put_Line(M_Trouve_T'Image);
    -- Fermer les deux fichers paquets.txt et table.txt
    Close(Table_txt);
    Close(Paquets_txt);
-   
-end Routeur_LL_test;
+end mainll;

@@ -69,7 +69,7 @@ package body Routeur_LL is
       Curseur := Cache;
       while Curseur /= null loop
          Taille := Taille + 1;
-         Curseur := Cache.all.Suivante;
+         Curseur := Curseur.all.Suivante;
       end loop;
       return Taille;
    end Taille_Cache;
@@ -84,14 +84,8 @@ package body Routeur_LL is
          Cache.all.Temps := Clock;
          Cache.all.Frequence := 1;
          Cache.all.Suivante := null;
-      elsif Cache.all.Destination = D then
-         if Comparer_Masque(Cache.all.Masque, M) then
-            Cache.all.Masque := M;
-            Cache.all.Interface_T := I;
-            Cache.all.Frequence := Cache.all.Frequence + 1;
-         else
-            Cache.all.Frequence := Cache.all.Frequence + 1;
-         end if;
+      elsif (Cache.all.Destination and M ) = D then
+         Cache.all.Frequence := Cache.all.Frequence + 1;
          Cache.all.Temps := Clock;
       else
          Enregistrer_Cache_L (Cache.all.Suivante, D, M, I);
@@ -173,16 +167,17 @@ package body Routeur_LL is
       Existe := False;
       Cache0 := Cache;
       M_Trouve_C := 0;
-      loop
+      while not Est_Vide_C(Cache0) loop
          if (IP and Cache0.all.Masque) = Cache0.all.Destination  then
-            M_Trouve_C := Cache0.all.Masque;
-            Int_Trouve_C := Cache0.all.Interface_T;
+            if Comparer_Masque(M_Trouve_C, Cache0.all.Masque) then
+               M_Trouve_C := Cache0.all.Masque;
+               Int_Trouve_C := Cache0.all.Interface_T;
+            end if;
             Existe := True;
          else
             null;
          end if;
          Cache0 := Cache0.all.Suivante;
-         exit when Cache0 = null;
       end loop;
       return Existe;
    end Chercher_Cache;
@@ -240,16 +235,16 @@ package body Routeur_LL is
    end Vider_Cache_LRU;
 
    procedure Donner_Resultats_CL (Table : in  T_Table; Cache : in out T_Cache_L; Paquets_txt : in File_Type) is
-      UN_OCTET :constant T_Adresse_IP := 2 ** 8;
+      UN_OCTET      :constant T_Adresse_IP := 2 ** 8;
       Resultats_txt : File_Type;
-      Stop : Boolean;
-      IP : T_Adresse_IP;
-      i : Integer;
-      Int_Finale : Unbounded_String;
-      M_Trouve_C : T_Adresse_IP;
-      Int_Trouve_C : Unbounded_String;
-      M_Trouve_T : T_Adresse_IP;
-      Int_Trouve_T : Unbounded_String;
+      Stop          : Boolean;
+      IP            : T_Adresse_IP;
+      i             : Integer;
+      Int_Finale    : Unbounded_String;
+      M_Trouve_C    : T_Adresse_IP;
+      Int_Trouve_C  : Unbounded_String;
+      M_Trouve_T    : T_Adresse_IP;
+      Int_Trouve_T  : Unbounded_String;
    begin
       Create(Resultats_txt, Out_File, "resultats.txt");
       begin
@@ -258,13 +253,10 @@ package body Routeur_LL is
          loop
             Commande_Paquets_CL (paquets_txt, Stop, i, Table, Cache, IP);
             Chercher_Table (Table, IP, M_Trouve_T, Int_Trouve_T);
+            Put(Int_Trouve_T);
             if Chercher_Cache (Cache, IP, M_Trouve_C, Int_Trouve_C) then
-               if Comparer_Masque( M_Trouve_C, M_Trouve_T) then
-                  Int_Finale := Int_Trouve_T;
-                  Enregistrer_Cache_L (Cache, IP, M_Trouve_T, Int_Trouve_T);
-               else
-                  Int_Finale := Int_Trouve_C;
-               end if;
+               Int_Finale := Int_Trouve_C;
+               --Enregistrer_Cache_L (Cache, IP, M_Trouve_C, Int_Trouve_C);
             else
                Int_Finale := Int_Trouve_T;
                Enregistrer_Cache_L (Cache, IP, M_Trouve_T, Int_Trouve_T);
