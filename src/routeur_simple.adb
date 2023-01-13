@@ -107,14 +107,16 @@ package body Routeur_Simple is
 
    procedure Chercher_Table (Table : in T_Table; IP : in T_Adresse_IP; M_Trouve_T : out T_Adresse_IP; Int : out Unbounded_String) is
       Table0 : T_Table;
+      Table1 : T_Table;
    begin
       Table0 := Table;
-      M_Trouve_T := T_Adresse_IP(0);
-      loop
+      M_Trouve_T := 0;
+      while Table0 /= null loop
          if (IP and Table0.all.Masque) = Table0.all.Destination then
-            if Comparer_Masque(M_Trouve_T, T_Adresse_IP(Table0.all.Masque)) then
-               M_Trouve_T := T_Adresse_IP(Table0.all.Masque);
-               Int := Table0.all.Interface_T;
+            Table1 := Table0;
+            if Comparer_Masque(M_Trouve_T, Table1.all.Masque) then
+               M_Trouve_T := Table1.all.Masque;
+               Int := Table1.all.Interface_T;
             else
                null;
             end if;
@@ -122,7 +124,6 @@ package body Routeur_Simple is
             null;
          end if;
          Table0 := Table0.all.Suivante;
-         exit when Table0.all.Suivante = null;
       end loop;
    end Chercher_Table;
 

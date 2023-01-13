@@ -37,7 +37,7 @@ package Routeur_LL is
    procedure Commande_Paquets_CL(Paquets_txt : in File_Type; Stop : out Boolean; i : in out Integer; Table : in  T_Table; Cache : in out T_Cache_L; IP : out T_Adresse_IP);
 
    -- Chercher l'interface convenable dans le cache
-   function Chercher_Cache (Cache : in T_Cache_L; IP : in T_Adresse_IP; M_Trouve_C : out T_Adresse_IP; Int_Trouve_C : out Unbounded_String) return Boolean;
+   procedure Chercher_Cache (Cache : in T_Cache_L; IP : in T_Adresse_IP; M_Trouve_C : out T_Adresse_IP; Int_Trouve_C : out Unbounded_String; Existe : out Boolean);
 
    -- Vider le cache en utilisant la politique FIFO
    procedure Vider_Cache_FIFO (Cache : in out T_Cache_L);

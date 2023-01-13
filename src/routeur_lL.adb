@@ -114,6 +114,9 @@ package body Routeur_LL is
       curseur : T_Cache_L;
    begin
       curseur := Cache;
+      if Est_Vide_C(curseur) then
+         Put_Line("Le cache est vide");
+      end if;
       while curseur /= null loop
          Put (Natural ((curseur.all.Destination / UN_OCTET ** 3) mod UN_OCTET), 1); Put (".");
          Put (Natural ((curseur.all.Destination / UN_OCTET ** 2) mod UN_OCTET), 1); Put (".");
@@ -160,9 +163,8 @@ package body Routeur_LL is
          when others => null;
    end Commande_Paquets_CL;
 
-   function Chercher_Cache (Cache : in T_Cache_L; IP : in T_Adresse_IP; M_Trouve_C : out T_Adresse_IP;  Int_Trouve_C : out Unbounded_String) return Boolean is
+   procedure Chercher_Cache (Cache : in T_Cache_L; IP : in T_Adresse_IP; M_Trouve_C : out T_Adresse_IP;  Int_Trouve_C : out Unbounded_String; Existe : out Boolean) is
       Cache0 : T_Cache_L;
-      Existe : Boolean;
    begin
       Existe := False;
       Cache0 := Cache;
@@ -179,7 +181,6 @@ package body Routeur_LL is
          end if;
          Cache0 := Cache0.all.Suivante;
       end loop;
-      return Existe;
    end Chercher_Cache;
 
 
@@ -245,6 +246,7 @@ package body Routeur_LL is
       Int_Trouve_C  : Unbounded_String;
       M_Trouve_T    : T_Adresse_IP;
       Int_Trouve_T  : Unbounded_String;
+      Existe : Boolean;
    begin
       Create(Resultats_txt, Out_File, "resultats.txt");
       begin
@@ -253,10 +255,9 @@ package body Routeur_LL is
          loop
             Commande_Paquets_CL (paquets_txt, Stop, i, Table, Cache, IP);
             Chercher_Table (Table, IP, M_Trouve_T, Int_Trouve_T);
-            Put(Int_Trouve_T);
-            if Chercher_Cache (Cache, IP, M_Trouve_C, Int_Trouve_C) then
+            Chercher_Cache (Cache, IP, M_Trouve_C, Int_Trouve_C, Existe);
+            if Existe then
                Int_Finale := Int_Trouve_C;
-               --Enregistrer_Cache_L (Cache, IP, M_Trouve_C, Int_Trouve_C);
             else
                Int_Finale := Int_Trouve_T;
                Enregistrer_Cache_L (Cache, IP, M_Trouve_T, Int_Trouve_T);

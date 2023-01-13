@@ -32,6 +32,7 @@ begin
    
    -- Chercher l'interface convenable dans la table de routage
    Donner_Resultats(Table, Paquets_txt);
+   Afficher_T(Table);
    
    -- Fermer les deux fichers paquets.txt et table.txt
    Close(Paquets_txt);

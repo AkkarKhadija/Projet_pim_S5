@@ -21,9 +21,7 @@ procedure mainll is
    Stat        : Boolean;    -- la statistique choisit
    Table       : T_Table;    -- le nom de la liste chainée : table de routage
    Cache       : T_Cache_L;  -- le nom de la liste chainée : le cache
-   M_Trouve_T : T_Adresse_IP;
-   INT : Unbounded_String;
-   IP : T_Adresse_IP;
+   
 begin
    Analyser_L_Commande_C(Taille_C, T_Fichier, P_Fichier, R_Fichier, P_Cache, Stat);
    Open(Paquets_txt, In_File, To_String (P_Fichier));
@@ -65,9 +63,9 @@ begin
          Donner_Resultats(Table, Paquets_txt);
       end if;
    end;
-   IP:= 3299344386;
-   Chercher_Table(Table, IP, M_Trouve_T, INT);
-   Put_Line(M_Trouve_T'Image);
+   Vider_Cache_FIFO(Cache);
+   Afficher_Cache_L(Cache);
+   
    -- Fermer les deux fichers paquets.txt et table.txt
    Close(Table_txt);
    Close(Paquets_txt);
