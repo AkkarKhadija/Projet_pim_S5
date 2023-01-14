@@ -155,9 +155,11 @@ package body Routeur_LL is
       elsif Valeur = 'f' then
          Put ("fin (ligne " & Integer'Image(i) ); Put (")");
          stop := True;
-      else
+      elsif Valeur = ' ' then
          Get_IP(Paquets_txt, IP);
          i := i + 1;
+      else
+         stop := True;
       end if;
    exception
          when others => null;
@@ -252,6 +254,7 @@ package body Routeur_LL is
       begin
          i := 1;
          Stop := False;
+         Cache := null;
          loop
             Commande_Paquets_CL (paquets_txt, Stop, i, Table, Cache, IP);
             Chercher_Table (Table, IP, M_Trouve_T, Int_Trouve_T);

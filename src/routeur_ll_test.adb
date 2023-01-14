@@ -69,6 +69,8 @@ begin
    end;
    
    -- Fermer les deux fichers paquets.txt et table.txt
+   
+   Afficher_Cache_L(Cache);
    Close(Table_txt);
    Close(Paquets_txt);
    

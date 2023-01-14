@@ -6,19 +6,26 @@ A -march=x86-64
 P SS ZX
 
 RN
+RV NO_ALLOCATORS
 RV NO_CALENDAR
 RV NO_DELAY
+RV NO_DIRECT_BOOLEAN_OPERATORS
 RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTION_PROPAGATION
 RV NO_EXCEPTIONS
 RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
 RV NO_NESTED_FINALIZATION
+RV NO_RECURSION
 RV NO_SECONDARY_STACK
+RV NO_STANDARD_ALLOCATORS_AFTER_ELABORATION
 RV NO_STANDARD_STORAGE_POOLS
-RV NO_UNCHECKED_DEALLOCATION
 RV NO_DEFAULT_INITIALIZATION
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
 RV NO_IMPLEMENTATION_PRAGMAS
 
-U routeur_ll_test%b	routeur_ll_test.adb	7b2bd457 NE OO SU
+U routeur_la_test%b	routeur_la_test.adb	f597a4eb NE OO SU
 W ada%s			ada.ads			ada.ali
 W ada.calendar%s	a-calend.adb		a-calend.ali
 W ada.command_line%s	a-comlin.adb		a-comlin.ali
@@ -27,14 +34,20 @@ W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
 W ada.strings%s		a-string.ads		a-string.ali
 Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
 W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+Z ada.tags%s		a-tags.adb		a-tags.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
 W ada.text_io.unbounded_io%s  a-tiunio.ads	a-tiunio.ali
-W ada.unchecked_deallocation%s
-W routeur_ll%s		routeur_ll.adb		routeur_ll.ali
-W routeur_simple%s	routeur_simple.adb	routeur_simple.ali
+Z ada.unchecked_deallocation%s
+W routeur_la%s		routeur_la.adb		routeur_la.ali
+Z system%s		system.ads		system.ali
+Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
+Z system.pool_global%s	s-pooglo.adb		s-pooglo.ali
 Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 Z system.soft_links%s	s-soflin.adb		s-soflin.ali
 Z system.standard_library%s  s-stalib.adb	s-stalib.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+Z system.storage_pools%s  s-stopoo.adb		s-stopoo.ali
+Z system.storage_pools.subpools%s  s-stposu.adb	s-stposu.ali
 
 D ada.ads		20210520051132 76789da1 ada%s
 D a-calend.ads		20210520051128 474d9720 ada.calendar%s
@@ -60,9 +73,9 @@ D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
 D a-uncdea.ads		20210520051130 c3a8ac65 ada.unchecked_deallocation%s
 D interfac.ads		20210520051132 edec285f interfaces%s
 D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
-D routeur_ll.ads	20230112082212 db04d1cb routeur_ll%s
-D routeur_ll_test.adb	20230114124620 c9b5cbd1 routeur_ll_test%b
-D routeur_simple.ads	20230110104716 8d0ba201 routeur_simple%s
+D routeur_la.ads	20230114132838 fa1007c2 routeur_la%s
+D routeur_la.adb	20230114132838 fa1c050a routeur_la%b
+D routeur_la_test.adb	20230114132838 28be6300 routeur_la_test%b
 D system.ads		20210520051136 2ffa5114 system%s
 D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
 D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
@@ -82,81 +95,51 @@ D s-stalib.adb		20210520051134 977290bf system.standard_library%b
 D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
 D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
 D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-stposu.ads		20210520051134 e251976f system.storage_pools.subpools%s
 D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
 D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
 D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
 D s-wchcon.ads		20210520051136 1b7d22d2 system.wch_con%s
 D unchconv.ads		20210520051136 ca2f9e18 unchecked_conversion%s
 G a e
-G c Z b b [routeur_ll_test standard 14 11 none]
-G r c none [routeur_ll_test standard 14 11 none] [analyser_l_commande_c routeur_ll 16 14 none]
-G r c none [routeur_ll_test standard 14 11 none] [remplire_table routeur_simple 31 14 none]
-G r c none [routeur_ll_test standard 14 11 none] [donner_resultats_cl routeur_ll 52 14 none]
-G r c none [routeur_ll_test standard 14 11 none] [taille_cache routeur_ll 23 13 none]
-G r c none [routeur_ll_test standard 14 11 none] [vider_cache_fifo routeur_ll 43 14 none]
-G r c none [routeur_ll_test standard 14 11 none] [vider_cache_lfu routeur_ll 46 14 none]
-G r c none [routeur_ll_test standard 14 11 none] [vider_cache_lru routeur_ll 49 14 none]
-G r c none [routeur_ll_test standard 14 11 none] [afficher_cache_l routeur_ll 34 14 none]
-G r c none [routeur_ll_test standard 14 11 none] [donner_resultats routeur_simple 37 14 none]
+G c Z b b [routeur_la_test standard 11 11 none]
+G r i none [routeur_la_test standard 11 11 none] [routeur_la standard 12 9 none]
 X 1 ada.ads
-16K9*Ada 20e8 26|1r6 1r37 2r6 2r37 3r6 3r37 4r6 4r37 5r6 5r37 6r6 7r6 7r37
-. 8r6 8r37 11r6 11r37
+16K9*Ada 20e8 27|1r6 1r37 2r6 2r37 3r6 3r37 4r6 4r37 5r6 5r37 6r6 6r37 7r6
+. 7r37 8r6 8r37
 X 2 a-calend.ads
-36K13*Calendar 413e17 26|11w10 11r41
+36K13*Calendar 413e17 27|2w10 2r41
 X 5 a-comlin.ads
-36K13*Command_Line 144e21 26|7w10 7r41
+36K13*Command_Line 144e21 27|7w10 7r41
 X 6 a-except.ads
-44K13*Exceptions 289e19 26|8w10 8r41
+44K13*Exceptions 289e19 27|8w10 8r41
 X 8 a-inteio.ads
-18K13*Integer_Text_IO[19|46] 26|3w10 3r41
+18K13*Integer_Text_IO[19|46] 27|4w10 4r41
 X 11 a-string.ads
-16K13*Strings 35e16 26|1w10 1r41 4r10 4r41
+16K13*Strings 35e16 27|1w10 1r41 5r10 5r41
 X 14 a-strunb.ads
-83K21*Unbounded 765e26 26|4w18 4r49
-88R9*Unbounded_String<7|43R9> 744e15 26|18r18 19r18 20r18 21r18
-104V13*To_Unbounded_String{88R9} 26|45s26 47s29 49s29
-117V13*To_String{string} 26|31s31 32s29
-239V14*"="{boolean} 26|45s24 47s27 49s27
+83K21*Unbounded 765e26 27|5w18 5r49
+104V13*To_Unbounded_String{88R9} 27|37s29
 X 18 a-textio.ads
-58K13*Text_IO 725e16 26|2w10 2r41 5r10 5r41
-65P9*File_Type 26|15r18 16r18
-67n23*In_File{67E9} 26|31r22 32r20
-112U14*Open 26|31s4 32s4
-127U14*Close 26|74s4 75s4
-262U14*New_Line 26|37s7 59s13
-506U14*Put_Line 26|36s7 58s13
+58K13*Text_IO 725e16 27|3w10 3r41 6r10 6r41
 X 20 a-tiunio.ads
-25K21*Unbounded_IO 61e29 26|5w18 5r49
-X 22 a-uncdea.ads
-20u15*Unchecked_Deallocation 26|6w10
-X 25 routeur_ll.ads
-8K9*Routeur_LL 66e15 26|10w6 10r37
-10P9*T_Cache_L 26|24r18
-16U14*Analyser_L_Commande_C 26|28s4
-23V13*Taille_Cache{integer} 26|44s13
-34U14*Afficher_Cache_L 26|60s13 73s4
-43U14*Vider_Cache_FIFO 26|46s16
-46U14*Vider_Cache_LFU 26|48s16
-49U14*Vider_Cache_LRU 26|50s16
-52U14*Donner_Resultats_CL 26|40s10
-X 26 routeur_ll_test.adb
-14U11*Routeur_LL_test 14b11 77l5 77t20
-15p4 Paquets_txt{18|65P9} 31m9 31r9 40r44 67r34 75m10 75r10
-16p4 Table_txt{18|65P9} 32m9 32r9 35r22 74m10 74r10
-17i4 Taille_C{integer} 28m26 38r10 44r36
-18r4 T_Fichier{14|88R9} 28m36 32r40
-19r4 P_Fichier{14|88R9} 28m47 31r42
-20r4 R_Fichier{14|88R9} 28m58
-21r4 P_Cache{14|88R9} 28m69 45r16 47r19 49r19
-22b4 Stat{boolean} 28m78 57r13
-23p4 Table{27|8P9} 35m33 35r33 40r30 67m27 67r27
-24p4 Cache{25|10P9} 40m37 40r37 44r26 46m33 46r33 48m32 48r32 50m32 50r32
-. 60r30 73r21
-X 27 routeur_simple.ads
-6K9*Routeur_Simple 26|9w6 9r37 27|54e19
-8P9*T_Table 26|23r18
-31U14*Remplire_Table 26|35s7
-37U14*Donner_Resultats 26|67s10
+25K21*Unbounded_IO 61e29 27|6w18 6r49
+32U14*Put=34:42 27|40s5
+X 25 routeur_la.ads
+12k9*Routeur_LA 53e15 27|9w6 12r23
+14M9 T_IP_adresse 27|14r9[12] 15r8[12] 16r8[12] 17r24[12]
+16R10 T_cache
+17P10 T_cache_ptr(16R10[27|12]) 27|18r11[12]
+38U14 remp_cache 27|37s5[12]
+45V13 cher_cache{14|88R9} 27|40s9[12]
+X 27 routeur_la_test.adb
+11U11*Routeur_LA_Test 11b11 45l5 45t20
+12K14 P[25|12] 13r9
+14m5 IP1{25|14M9[12]} 25m5 27m5 27r12 29m5 29r12 31m5 31r12 36r11 37r22
+15m5 M1{25|14M9[12]} 34m5 35m5 35r11 37r26
+16m5 D1{25|14M9[12]} 36m5 40r20
+17m5 UN_OCTET{25|14M9[12]} 27r18 29r18 31r18
+18p5 cache{25|17P10[12]} 37m16 37r16 40r23
 X 28 system.ads
 67M9*Address
 X 35 s-memory.ads

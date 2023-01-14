@@ -1,0 +1,21 @@
+[GENERATED OBJECT FILE]
+b__routeur_ll_test.o
+[PROJECT FILES]
+C:\Users\Hay Info\Desktop\projet_final3\projet_final\projet_final.gpr
+20230110104956 678b672f40c1ba244fbef1fa7f576882
+[BOUND OBJECT FILES]
+C:\Users\Hay Info\Desktop\projet_final3\projet_final\obj\routeur_simple.o
+C:\Users\Hay Info\Desktop\projet_final3\projet_final\obj\routeur_lL.o
+C:\Users\Hay Info\Desktop\projet_final3\projet_final\obj\routeur_ll_test.o
+[GENERATED SOURCE FILES]
+b__routeur_ll_test.ads
+b__routeur_ll_test.adb
+b__routeur_ll_test.ali
+[RESULTING OPTIONS]
+-LC:\Users\Hay Info\Desktop\projet_final3\projet_final\obj\
+-LC:\Users\Hay Info\Desktop\projet_final3\projet_final\obj\
+-LC:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/
+-static
+-static-libgcc
+C:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/libgnat.a
+-Wl,--stack=0x2000000
